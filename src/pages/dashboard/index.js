@@ -43,7 +43,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container className="d-flex w-80 card mt-5">
+    <Container className="d-flex w-80 card mt-5 z-0">
       <div className="row">
         <div className="col">
           <h1>{userData && userData.name}</h1>
@@ -58,7 +58,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="col">
-        <Container>
+        <Container className = 'card mt-5'>
         <h1>game info here</h1>
       </Container>
         </div>

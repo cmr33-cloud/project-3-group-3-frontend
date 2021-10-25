@@ -6,6 +6,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
 import Dashboard from "./pages/Dashboard";
+import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
           <Login />
         </Route>
         <Route path="/dashboard" exact>
+          <Sidebar/>
           <Dashboard/>
         </Route>
         <Route path="/testing">
