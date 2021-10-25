@@ -4,9 +4,11 @@ const Sidebar = () => {
 
 
     return (
-        <div className='fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-200 text-white shadow-lg z-10'>
+        <div className='fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-300 text-white shadow-sm z-10'>
             <br/>
-            
+            <br/>
+            <br/>
+            <br/>
             
             <SideBarIcon text='home'  href='./dashboard'icon={<FaHome size='28' data-testid ="home-icon"/>}/>
             <SideBarIcon text='create new game'  href='./newgame'icon={<FaPlus size='28' data-testid ="create-icon"/>}/>

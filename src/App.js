@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
+import CustomNav from "./components/CustomNav";
 function App() {
   return (
     <div className="App">
@@ -15,7 +16,9 @@ function App() {
           <Login />
         </Route>
         <Route path="/dashboard" exact>
+          
           <Sidebar/>
+          <CustomNav/>
           <Dashboard/>
         </Route>
         <Route path="/testing">

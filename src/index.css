@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
+
   .sidebar-icon {
     @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-300 text-indigo-600
     hover:bg-indigo-400 hover:text-white
     hover:cursor-pointer
     rounded-3xl hover:rounded-xl
     transition-all duration-300 ease-linear;
-    animation: 10s hue-rotate infinite ease;
+    
 
 
   }
@@ -18,7 +19,14 @@
     text-white bg-gray-900
     text-xs font-bold
     transition-all duration-100 scale-0 origin-left z-10;
-    z-index: 10;
+    z-index: 20;
+  }
+
+  .custom-nav {
+    @apply p-2 top-0 left-0 bg-gray-300 z-10;
+  }
+  .custom-nav-text {
+    @apply text-indigo-700
   }
   
 }
