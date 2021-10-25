@@ -6,13 +6,14 @@ export default function CreateRoom() {
     const dispatch = useDispatch()
     function handleClick(e) {
         dispatch(addConfig({gameMode: e.target.id}))
+        window.location.href = '/selectCategory'
     }
 
 
   return (
     <div className="d-flex align-items-center mt-5">
       <Container>
-          <h1>select options</h1>
+          <h1>select game mode</h1>
         {/* <Container className= 'customBox border border-dark'>
                     <Row>
                         <Col className="box border border-dark">1</Col>

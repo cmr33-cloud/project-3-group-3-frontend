@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
 import CreateRoom from "./pages/CreateRoom";
+import SelectCategory from "./pages/SelectCategory";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
           <Sidebar/>
           <CustomNav/>
           <CreateRoom/>
+        </Route>
+        <Route path="/selectCategory">
+          <Sidebar/>
+          <CustomNav/>
+          <SelectCategory/>
         </Route>
         <Route path="/about">
           <Sidebar />
