@@ -43,7 +43,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container className="d-flex w-80 card mt-5 z-0">
+    <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
       <div className="row">
         <div className="col">
           <h1>{userData && userData.name}</h1>

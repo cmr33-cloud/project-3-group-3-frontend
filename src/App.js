@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Login from "./pages/login/index";
+import Login from "./pages/Login/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
 import NotFound from "./pages/NotFound";
@@ -11,6 +11,7 @@ import CustomNav from "./components/CustomNav";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
+import CreateRoom from "./pages/CreateRoom";
 
 function App() {
   return (
@@ -20,27 +21,31 @@ function App() {
           <Login />
         </Route>
         <Route path="/dashboard" exact>
-          
+          <Sidebar />
+          <CustomNav />
+          <Dashboard />
+        </Route>
+        <Route path="/newgame">
           <Sidebar/>
           <CustomNav/>
-          <Dashboard/>
+          <CreateRoom/>
         </Route>
         <Route path="/about">
-        <Sidebar/>
-          <CustomNav/>
+          <Sidebar />
+          <CustomNav />
           <About />
         </Route>
         <Route path="/contact">
-        <Sidebar/>
-          <CustomNav/>
+          <Sidebar />
+          <CustomNav />
           <Contact />
         </Route>
         <Route path="/logout">
           <Logout />
         </Route>
         <Route path="/testing">
-        <Sidebar/>
-          <CustomNav/>
+          <Sidebar />
+          <CustomNav />
           <Testing />
         </Route>
         <Route path="*">

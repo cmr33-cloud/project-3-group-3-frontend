@@ -26,7 +26,14 @@
     @apply p-2 top-0 left-0 bg-gray-300 z-10;
   }
   .custom-nav-text {
-    @apply text-indigo-700
+    @apply text-indigo-700 drop-shadow-lg;
+  }
+  .dashboard-container {
+    @apply rounded-md shadow-lg;
+  }
+  .options-box {
+    @apply w-auto align-middle justify-center p-2 m-2;
+    height: 200px;
   }
   
 }
