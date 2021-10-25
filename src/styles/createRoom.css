@@ -1,0 +1,12 @@
+.customBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.box {
+    position: relative;
+    height: 20em;
+    margin: 30px;
+    text-align: center;
+}
