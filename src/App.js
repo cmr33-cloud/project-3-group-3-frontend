@@ -13,7 +13,8 @@ import Contact from "./pages/Contact";
 import Logout from "./pages/Logout";
 import CreateRoom from "./pages/CreateRoom";
 import SelectCategory from "./pages/SelectCategory";
-
+import SelectDifficulty from "./pages/SelectDifficulty";
+import Lobby from './pages/Lobby'
 function App() {
   return (
     <div className="App">
@@ -35,6 +36,16 @@ function App() {
           <Sidebar/>
           <CustomNav/>
           <SelectCategory/>
+        </Route>
+        <Route path="/selectDifficulty">
+          <Sidebar/>
+          <CustomNav/>
+          <SelectDifficulty/>
+        </Route>
+        <Route path="/lobby">
+          <Sidebar/>
+          <CustomNav/>
+          <Lobby/>
         </Route>
         <Route path="/about">
           <Sidebar />

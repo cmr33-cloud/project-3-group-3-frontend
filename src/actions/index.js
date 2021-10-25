@@ -3,10 +3,22 @@ const loadQuestions = (questionsData) => ({
     payload: questionsData
 });
 
-export const addConfig = (payload) => ({
-    type: 'ADD_CONFIG',
+export const addGamemode = (payload) => ({
+    type: 'ADD_GAMEMODE',
     payload
 })
+
+export const addCategory = (payload) => ({
+    type: 'ADD_CATEGORY',
+    payload
+})
+
+
+export const addDifficulty = (payload) => ({
+    type: 'ADD_DIFFICULTY',
+    payload
+})
+
 
 
 export const getQuestions = (searchTerm) => {
@@ -27,7 +39,7 @@ const fetchQuestions = async (searchTerm) => {
     console.log(amount, category, difficulty, type)
     try {
         const resp = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`)
-        console.log()
+        console.log(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`)
         const data = await resp.json();
         console.log(data)
         console.log(data.results)

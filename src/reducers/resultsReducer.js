@@ -1,6 +1,6 @@
 const initialState = {
     questions: [],
-    configuration: {}
+    
 }
 
 const resultsReducer = (state = initialState, { type, payload }) => {
@@ -9,8 +9,14 @@ const resultsReducer = (state = initialState, { type, payload }) => {
     case 'LOAD_QUESTIONS':
         return {...state, questions: payload }
 
-    case 'ADD_CONFIG':
-        return {...state, configuration: payload}
+    case 'ADD_GAMEMODE':
+        return {...state, gameMode: payload}
+
+    case 'ADD_CATEGORY':
+        return {...state, category: payload}
+
+    case 'ADD_DIFFICULTY':
+        return {...state, difficulty: payload}
 
     default:
         return state

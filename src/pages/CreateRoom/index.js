@@ -1,17 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addConfig } from "../../actions";
+import { Redirect } from "react-router";
+import { addGamemode } from "../../actions";
 export default function CreateRoom() {
+
+    const [redirect, setRedirect] = useState(false)
+    
     const dispatch = useDispatch()
     function handleClick(e) {
-        dispatch(addConfig({gameMode: e.target.id}))
-        window.location.href = '/selectCategory'
+        
+        dispatch(addGamemode(e.target.id))
+        setRedirect(true)
+        
     }
 
 
   return (
-    <div className="d-flex align-items-center mt-5">
+   
+      !redirect ? <div className="d-flex align-items-center mt-5">
       <Container>
           <h1>select game mode</h1>
         {/* <Container className= 'customBox border border-dark'>
@@ -34,6 +41,7 @@ export default function CreateRoom() {
           <div className="col options-box card" onClick={handleClick} id='custom'>custom</div>
         </div>
       </Container>
-    </div>
+    </div> : <Redirect to='/selectCategory'/>
+    
   );
 }

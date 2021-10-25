@@ -37,6 +37,10 @@
     height: 400px;
     
   }
+  .options-box-categories {
+    @apply w-auto align-middle justify-center p-2 m-2;
+    height: 400px;
+  }
   .category-box {
     @apply w-auto align-middle justify-center p-2 m-2
     hover:cursor-pointer;

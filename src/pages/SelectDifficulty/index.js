@@ -1,22 +1,31 @@
 import React, {useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { addCategory } from "../../actions";
+import { useDispatch } from "react-redux";
+import { addDifficulty } from "../../actions";
 import { Redirect } from "react-router";
+import { useSelector } from "react-redux";
 import { getQuestions } from "../../actions";
-export default function SelectCategory() {
+export default function SelectDifficulty() {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false)
+  const category = useSelector(state => state.category)
   
-  
- 
+  const search = (searchTerm) => dispatch(getQuestions(searchTerm))
   function handleClick(e) {
-    dispatch(addCategory(e.target.id ))
+    console.log('clicked')
+    dispatch(addDifficulty(e.target.id ))
+    const difficulty = e.target.id
+    const amount = 10;
+    const type = 'multiple'
+    const searchTerm = {
+      amount,
+      category,
+      difficulty,
+      type
+    }
+    search(searchTerm)
     setRedirect(true)
-    
   }
-  
-
 
   return (
     !redirect ? 
@@ -38,29 +47,27 @@ export default function SelectCategory() {
           <div className="col options-box-categories card">
           <h1>select category</h1>
             <div className="row">
-              <div className="col category-box card" id='9' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='10' onClick={handleClick}>category</div>
+              <div className="col difficulty-box card" id='easy' onClick={handleClick}>easy</div>
+              
             </div>
             <div className="row">
-              <div className="col category-box card" id='12' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='13' onClick={handleClick}>category</div>
+              <div className="col difficulty-box card" id='medium' onClick={handleClick}>medium</div>
+              
             </div>
             <div className="row">
-              <div className="col category-box card" id='14' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='15' onClick={handleClick}>category</div>
+              <div className="col difficulty-box card" id='hard' onClick={handleClick}>hard</div>
+            
             </div>
             <div className="row">
-            <div className = 'col category-box card ' id='16' onClick={handleClick}>category</div>
-                  <div className = 'col category-box card' id='17' onClick={handleClick}>category</div>
-            </div>
-            <div className="row">
-            <div className = 'col category-box card'>custom</div>
+            <div className = 'col difficulty-box card ' id='custom' onClick={handleClick}>custom</div>
                   
             </div>
+            
+            
           </div>
           
         </div>
       </Container>
-    </div> : <Redirect to='/selectDifficulty'/>
+    </div> : <Redirect to='/lobby'/>
   );
 }
