@@ -21,7 +21,7 @@ const Login = () => {
       }
       const result = await fetch('https://quiz-app-project-3.herokuapp.com/api/auth/login', options)
       const data = await result.json()
-      console.log(data)
+      
       localStorage.setItem('token',data.token);
     } else {
       const options = {
@@ -37,10 +37,11 @@ const Login = () => {
       }
       const result = await fetch('https://quiz-app-project-3.herokuapp.com/api/auth/register', options)
       const data = await result.json()
-      console.log(data)
+      
       localStorage.setItem('token',data.token)
     }
-  
+    window.location.href= './dashboard';
+    
   }
 
   const [show, setShow] = useState(false)
