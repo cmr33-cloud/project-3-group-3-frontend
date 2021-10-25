@@ -8,6 +8,10 @@ import Testing from "./pages/Testing";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import CustomNav from "./components/CustomNav";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Logout from "./pages/Logout";
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +25,22 @@ function App() {
           <CustomNav/>
           <Dashboard/>
         </Route>
+        <Route path="/about">
+        <Sidebar/>
+          <CustomNav/>
+          <About />
+        </Route>
+        <Route path="/contact">
+        <Sidebar/>
+          <CustomNav/>
+          <Contact />
+        </Route>
+        <Route path="/logout">
+          <Logout />
+        </Route>
         <Route path="/testing">
+        <Sidebar/>
+          <CustomNav/>
           <Testing />
         </Route>
         <Route path="*">

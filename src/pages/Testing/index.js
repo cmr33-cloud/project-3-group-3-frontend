@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import { getQuestions } from "../../actions";
 import { useDispatch } from "react-redux";
 
@@ -20,7 +20,7 @@ const search = (searchTerm) => dispatch(getQuestions(searchTerm))
   }
 
   return (
-    <div>
+    <Container>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label> number of questions</Form.Label>
@@ -46,6 +46,6 @@ const search = (searchTerm) => dispatch(getQuestions(searchTerm))
           <Button type="submit">Submit</Button>
         </Form.Group>
       </Form>
-    </div>
+    </Container>
   );
 }

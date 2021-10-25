@@ -5,9 +5,11 @@ export default function CustomNav() {
         <Navbar className='custom-nav'>
             <Container>
                 <Navbar.Brand >
-                    <p className = 'custom-nav-text'>
-                        <b>inquizitive</b> - catchy slogan</p>
-                    
+                    <Container className = 'd-flex flex-row align-items-center justify-content-center'>
+                    <h2 className = 'custom-nav-text'>Inquizitive</h2>
+                    <br/>
+                    <p className = 'custom-nav-text'>catchy slogan</p>
+                    </Container>
                     </Navbar.Brand>
                 
             </Container>
