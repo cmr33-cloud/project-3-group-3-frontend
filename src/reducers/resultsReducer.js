@@ -1,5 +1,6 @@
 const initialState = {
-    questions: []
+    questions: [],
+    configuration: {}
 }
 
 const resultsReducer = (state = initialState, { type, payload }) => {
@@ -7,6 +8,9 @@ const resultsReducer = (state = initialState, { type, payload }) => {
 
     case 'LOAD_QUESTIONS':
         return {...state, questions: payload }
+
+    case 'ADD_CONFIG':
+        return {...state, configuration: payload}
 
     default:
         return state

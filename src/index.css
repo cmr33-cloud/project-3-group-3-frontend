@@ -32,8 +32,10 @@
     @apply rounded-md shadow-lg;
   }
   .options-box {
-    @apply w-auto align-middle justify-center p-2 m-2;
+    @apply w-auto align-middle justify-center p-2 m-2
+    hover:cursor-pointer;
     height: 200px;
+    
   }
   
 }

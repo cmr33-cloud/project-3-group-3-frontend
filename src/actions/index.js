@@ -3,6 +3,12 @@ const loadQuestions = (questionsData) => ({
     payload: questionsData
 });
 
+export const addConfig = (payload) => ({
+    type: 'ADD_CONFIG',
+    payload
+})
+
+
 export const getQuestions = (searchTerm) => {
     return async (dispatch) => {
       try {
