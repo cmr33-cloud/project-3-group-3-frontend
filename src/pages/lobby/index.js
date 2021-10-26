@@ -7,14 +7,15 @@ import WaitingRoom from './WaitingRoom'
 export default function Lobby() {
   const socketRef = useRef()
   const [currentRoom, setCurrentRoom] = useState(socketRef.current ? socketRef.current.id : "")
+  const [messages, setMessages] = useState([])
   
-  let messages= {}
 
   function sendMessage(e) {
     e.preventDefault();
     console.log(`attempting to send message: ${e.target[0].value} to ${currentRoom}`)
     const message = e.target[0].value;
-    socketRef.current.emit('send-message',{room: currentRoom, message: message})
+    const username = localStorage.getItem('username')
+    socketRef.current.emit('send-message',{username: username, room: currentRoom, message: message})
   }
 
 
@@ -28,12 +29,13 @@ export default function Lobby() {
       setCurrentRoom(socketRef.current.id)
     }, 100);
     socketRef.current.emit('join-room',username)
-    socketRef.current.on('send-message', payload => {
-      console.log('message receieved')
-      messages[payload.room] = []
-      console.log('message is',payload.message, 'sent to', payload.room)
-      messages[payload.room].push(payload.message)
-      console.log(messages[payload.room])
+    socketRef.current.on('display-messages', payload => {
+      console.log('messages receieved')
+      console.log(payload.messages, payload.room)
+      setCurrentRoom(payload.room)
+      setMessages(payload.messages)
+      console.log(messages)
+      
     })
   }
 

@@ -46,7 +46,9 @@
     hover:cursor-pointer;
   }
   .messages-box {
-    @apply flex w-auto justify-items-start p-2 m-2 border-2 border-secondary;
+    @apply flex flex-col w-auto justify-items-start p-2 m-2 border-2 border-secondary;
+    overflow: auto;
+    height: 250px;
   }
   
 }

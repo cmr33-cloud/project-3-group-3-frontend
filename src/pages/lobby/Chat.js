@@ -1,27 +1,41 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
 export default function Chat(props) {
-    console.log(props.messages[props.currentRoom])
-    props.setCurrentRoom(props.roomId)
-    useEffect(() => {
-        renderMessages()
-    },[props])
+  const { messages, roomId } = props;
 
-    function renderMessages() {
-        console.log(props.messages[props.currentRoom])
-        return props.messages[props.currentRoom] &&
-            props.messages[props.currentRoom].map((message, index) => (
-              <p key={index}>{message}</p>
-            ))}
-    
+  useEffect(() => {
+    renderMessages();
+  }, [handleSubmit]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.sendMessage(e);
+    if (!messages[roomId]) {
+      messages[roomId] = [];
+    }
+    messages[roomId].push(e.target[0].value);
+  }
+
+  function renderMessages() {
+    console.log(props.messages);
+    return;
+  }
 
   return (
     <div>
-      <div className = 'messages-box'>
-        {renderMessages()}
+      <div className="messages-box">
+        {props.messages &&
+          props.messages.map((obj, index) => (
+            <>
+              <h2>{obj.username}</h2>
+              <p className="m-2" key={index}>
+                {obj.message}
+              </p>
+            </>
+          ))}
       </div>
-      <Form onSubmit={props.sendMessage}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>write a message</Form.Label>
           <Form.Control
