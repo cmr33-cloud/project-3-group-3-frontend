@@ -41,6 +41,9 @@ const resultsReducer = (state = initialState, { type, payload }) => {
     case 'ADD_ROOM':
         return {...state, room: payload}
 
+    case 'ADD_SCORE':
+        return {...state, score: state.score + 1}
+
     default:
         return state
     }

@@ -17,6 +17,7 @@ import SelectCategory from "./pages/SelectCategory";
 import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
 import Questions from "./pages/Questions";
+import Results from "./pages/Results";
 
 function App() {
   return (
@@ -70,8 +71,16 @@ function App() {
         </Route>
         {/* Temperory Route */}
         <Route path="/questions">
+        <Sidebar />
+          <CustomNav />
           <Questions/>
         </Route>
+        <Route path="/results">
+        <Sidebar />
+          <CustomNav />
+          <Results/>
+        </Route>
+
 
 
         <Route path="*">

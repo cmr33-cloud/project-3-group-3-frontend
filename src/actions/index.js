@@ -31,6 +31,11 @@ export const addRoom = (payload) => ({
   type: 'ADD_ROOM',
   payload
 })
+export const addScore = (payload) => ({
+  type: 'ADD_SCORE',
+  payload
+})
+
 
 
 

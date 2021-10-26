@@ -10,7 +10,7 @@ const Questions = () => {
   //const [questions, setQuestions] = useState("");
   const [answers, setAnswers] = useState([null, null, null, null]);
   const [status, setStatus] = useState(false);
-
+  const [selected, setSelected] = useState(false)
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
 
@@ -69,6 +69,24 @@ const Questions = () => {
   //     });
   //   };
 
+  function createScore(e){
+    e.preventDefault();
+    // console.log(selected[0],selected[1])
+    // if (selected[0]===true){
+    //   selected[1].style.backgroundColor = "#FFFFFF"
+    // }
+    const card = e.target;
+    // console.log(card.parentNode.parentNode.children)
+    // console.log(card.innerText)
+    console.log(card)
+    // setSelected(card)
+    card.style.backgroundColor = "#00BFFF"
+    setSelected(true,card)
+// if(card.parentNode.parentNode.children[0].children[0]!==selected){card.parentNode.parentNode.children[0].children[0].style.backgroundColor = "white"}
+// if(card.parentNode.parentNode.children[0].children[1]!==selected){card.parentNode.parentNode.children[0].children[1].style.backgroundColor = "white"}
+// if(card.parentNode.parentNode.children[1].children[0]!==selected){card.parentNode.parentNode.children[1].children[0].style.backgroundColor = "white"}
+// if(card.parentNode.parentNode.children[1].children[1]!==selected){card.parentNode.parentNode.children[1].children[1].style.backgroundColor = "white"}
+  }
   const style = {
     width: String(width) + "px",
     backgroundColor: colour,
@@ -84,24 +102,24 @@ const Questions = () => {
   const textStyle = {float: "center", margin: "auto"}
 
   return (
-    <div>
-      <Container>
+    <div className = 'card mt-5' >
+      <Container className = 'mt-5'>
         <div id="bigBar" style={bigStyle}>
           <div id="littleBar" style={style}>
             <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
           </div>
         </div>
       </Container>
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center" onClick={(e) => createScore(e)}>
         <Container>
           <Container className="customBox border border-dark">
             <Row>
-              <Col className="box border border-dark">{answers[0]}</Col>
-              <Col className="box border border-dark">{answers[1]}</Col>
+              <Col className="box border border-dark" id="0"  >{answers[0]}</Col>
+              <Col className="box border border-dark" id="1"  >{answers[1]}</Col>
             </Row>
             <Row>
-              <Col className="box border border-dark">{answers[2]}</Col>
-              <Col className="box border border-dark">{answers[3]}</Col>
+              <Col className="box border border-dark" id="2"  >{answers[2]}</Col>
+              <Col className="box border border-dark" id="3"  >{answers[3]}</Col>
             </Row>
           </Container>
         </Container>

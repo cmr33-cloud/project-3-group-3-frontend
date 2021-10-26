@@ -6,6 +6,7 @@ import Chat from './Chat'
 import { useSelector, useDispatch } from 'react-redux'
 import WaitingRoom from './WaitingRoom'
 import { addSocket, addRoom } from '../../actions'
+import { Redirect } from 'react-router'
 export default function Lobby() {
   const dispatch = useDispatch()
   const socket = useSelector(state => state.socket)
@@ -13,6 +14,7 @@ export default function Lobby() {
   const socketRef = useRef()
   const [currentRoom, setCurrentRoom] = useState(room)
   const [messages, setMessages] = useState([])
+  const [redirect, setRedirect] = useState(false)
   function init() {
     socket.emit('join-room',room)
   socket.on('display-messages', payload => {
@@ -42,11 +44,13 @@ export default function Lobby() {
 
     
   
-  function handleClick() {
-
+  function handleClick(e) {
+    e.preventDefault();
+    setRedirect(true)
   }
 
     return (
+      !redirect ?
         <Container>
           <h1>welcome to the lobby</h1>
         {/* <Container className= 'customBox border border-dark'>
@@ -77,6 +81,6 @@ export default function Lobby() {
           </div>
         </div>
         
-      </Container>
+      </Container> : <Redirect to='/questions'/>
     )
 }
