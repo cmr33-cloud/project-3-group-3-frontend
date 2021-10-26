@@ -18,6 +18,9 @@ const resultsReducer = (state = initialState, { type, payload }) => {
     case 'ADD_DIFFICULTY':
         return {...state, difficulty: payload}
 
+    case 'ADD_MESSAGE':
+        return {...state, messages: [...state.messages, payload]}
+
     default:
         return state
     }
