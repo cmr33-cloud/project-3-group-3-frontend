@@ -58,6 +58,12 @@
   .gamesLink {
     @apply hover:cursor-pointer;
   }
+  .sent-self {
+    text-align: left;
+  }
+  .sent-other {
+    text-align: right;
+  }
   
 }
 

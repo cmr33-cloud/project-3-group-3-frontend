@@ -27,6 +27,10 @@ export const addSocket = (payload) => ({
   type: 'ADD_SOCKET',
   payload
 })
+export const addRoom = (payload) => ({
+  type: 'ADD_ROOM',
+  payload
+})
 
 
 

@@ -2,25 +2,14 @@ import React, { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
 export default function Chat(props) {
+    const username = localStorage.getItem('username')
   const { messages, roomId } = props;
-
-  useEffect(() => {
-    renderMessages();
-  }, [handleSubmit]);
-
+    console.log(roomId)
   function handleSubmit(e) {
     e.preventDefault();
     props.sendMessage(e);
-    if (!messages[roomId]) {
-      messages[roomId] = [];
-    }
-    messages[roomId].push(e.target[0].value);
   }
 
-  function renderMessages() {
-    console.log(props.messages);
-    return;
-  }
 
   return (
     <div>
@@ -28,8 +17,8 @@ export default function Chat(props) {
         {props.messages &&
           props.messages.map((obj, index) => (
             <>
-              <h2>{obj.username}</h2>
-              <p className="m-2" key={index}>
+              <h2 key={`sender-key-${index}`} className = {obj.username === username ? `sent-self` : `sent-other`}>{obj.username}</h2>
+              <p key={`message-key-${index}`} className="m-2" className = {obj.username === username ? `sent-self` : `sent-other`} >
                 {obj.message}
               </p>
             </>

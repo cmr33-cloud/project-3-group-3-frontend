@@ -3,55 +3,42 @@ import React, {useEffect, useRef, useState} from 'react'
 import { Container, Button } from 'react-bootstrap'
 import io from 'socket.io-client'
 import Chat from './Chat'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import WaitingRoom from './WaitingRoom'
+import { addSocket, addRoom } from '../../actions'
 export default function Lobby() {
-  const existingSocket = useSelector(state => state.socket)
+  const dispatch = useDispatch()
+  const socket = useSelector(state => state.socket)
+  const room = useSelector(state => state.room)
   const socketRef = useRef()
-  const [currentRoom, setCurrentRoom] = useState('test-room')
+  const [currentRoom, setCurrentRoom] = useState(room)
   const [messages, setMessages] = useState([])
+  function init() {
+    socket.emit('join-room',room)
+  socket.on('display-messages', payload => {
+    console.log('messages receieved')
+    console.log(payload.messages, payload.room)
+    // setCurrentRoom(payload.room)
+    setMessages(payload.messages)
+    console.log(messages)
+  })
+  }
+  useEffect(() => {
+    init()
+  },[])
   
 
   function sendMessage(e) {
     e.preventDefault();
-    console.log(`attempting to send message: ${e.target[0].value} to ${currentRoom}`)
+    console.log(`attempting to send message: ${e.target[0].value} to ${room}`)
     const message = e.target[0].value;
     const username = localStorage.getItem('username')
-    socketRef.current.emit('send-message',{username: username, room: currentRoom, message: message})
+    socket.emit('send-message',{username: username, room: room, message: message})
   }
 
 
-  function connect() {
-    let socket;
-    if (!existingSocket) {
-      socket = io("https://quiz-app-project-3.herokuapp.com/", {
-      withCredentials: true})
-      socket.connect()
-    }
-    else {
-      socket = existingSocket
-    }
-    socketRef.current = socket;
-    const username = localStorage.getItem('username')
-    const roomName = `${username}-room`
-    setCurrentRoom(roomName)
-    socketRef.current.emit('create-room',roomName)
-    socketRef.current.on('display-messages', payload => {
-      console.log('messages receieved')
-      console.log(payload.messages, payload.room)
-      // setCurrentRoom(payload.room)
-      setMessages(payload.messages)
-      console.log(messages)
-      
-    })
-  }
 
   
-  
-
-  useEffect(() => {
-    connect()
-  }, [])
 
     
   
@@ -75,10 +62,10 @@ export default function Lobby() {
                 </Container> */}
         <div className="row p-2 m-2">
           <div className="col options-box card" id='chat'>
-            <Chat roomId={'test-room'} messages={messages} currentRoom = {currentRoom} setCurrentRoom={setCurrentRoom} sendMessage={sendMessage}/>
+            <Chat roomId={room} messages={messages} currentRoom = {currentRoom} setCurrentRoom={setCurrentRoom} sendMessage={sendMessage}/>
           </div>
           <div className="col options-box card" id='waiting-room'>
-            <WaitingRoom/>
+            <WaitingRoom roomId={room}/>
           </div>
         </div>
         <div className="row p-2 m-2">

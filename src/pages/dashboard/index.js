@@ -2,11 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { io } from "socket.io-client";
-import { addSocket } from "../../actions";
+import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router";
 export default function Dashboard() {
   const dispatch = useDispatch()
-  const socket = useSelector(state => state.socket)
+  const [redirect, setRedirect] = useState(false)
   const [userData, setUserData] = useState(null);
   const [gamesData, setGamesData] = useState(null)
   // function renderStats(stats) {
@@ -26,6 +27,8 @@ export default function Dashboard() {
     newSocket.connect()
     newSocket.emit('join-room', e.target.id)
     dispatch(addSocket(newSocket))
+    dispatch(addRoom(e.target.id))
+    setRedirect(true)
   }
 
   useEffect(() => {
@@ -64,6 +67,7 @@ export default function Dashboard() {
         options
       );
       const gamesData = await result.json();
+      
       console.log(gamesData)
       if (isMounted) {
         setGamesData(gamesData);
@@ -79,6 +83,7 @@ export default function Dashboard() {
   }, []);
 
   return (
+    !redirect ? 
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
       <div className="row">
         <div className="col">
@@ -102,7 +107,7 @@ export default function Dashboard() {
               gamesData.map((game) => (
                 <>
                 <h2 className='gamesLink' onClick={handleClick} id={game.name} >name: {game.name}</h2>
-                <h3>participants: {game.participants[0]}, {game.participants[1]}</h3>
+                <h3>participants: {game.participants[0]}, { game.participants[1]}</h3>
                 <hr/>
                 </>
               ))}
@@ -115,6 +120,6 @@ export default function Dashboard() {
       </div>
 
       
-    </Container>
+    </Container> : <Redirect to="/lobby"/>
   );
 }

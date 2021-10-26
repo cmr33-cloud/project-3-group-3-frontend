@@ -1,20 +1,40 @@
 import React, {useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addDifficulty } from "../../actions";
+import { addDifficulty, addSocket } from "../../actions";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
 import { getQuestions } from "../../actions";
-
+import { io } from "socket.io-client";
+import { addRoom } from "../../actions";
 export default function SelectDifficulty() {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false)
   const category = useSelector(state => state.category)
+  const existingSocket = useSelector(state => state.socket)
   
   const search = (searchTerm) => dispatch(getQuestions(searchTerm))
   
   
+  function createRoom() {
+    let socket;
+    if (!existingSocket) {
+      socket = io("https://quiz-app-project-3.herokuapp.com/", {
+      withCredentials: true})
+      socket.connect()
+    }
+    else {
+      socket = existingSocket
+    }
     
+    const username = localStorage.getItem('username')
+    
+    const roomName = `${username}-room-${Math.floor(Math.random()*100)}`
+    dispatch(addRoom(roomName))
+    dispatch(addSocket(socket))
+    socket.emit('create-room',roomName)
+    
+  }
   
   function handleClick(e) {
     console.log('clicked')
@@ -29,6 +49,7 @@ export default function SelectDifficulty() {
       type
     }
     search(searchTerm)
+    createRoom()
     setRedirect(true)
   }
 
