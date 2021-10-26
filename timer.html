@@ -1,5 +1,5 @@
 <div style="outline: 2px solid black; height: 100; width: 500; margin:auto" id = "bar2">
-  <div style="height: 100; width: 500" id="bar">
+  <div style="height: 100; width: 500; float: right" id="bar">
     <text style = "float:center; position:relative">What is the airspeed velocity of an unladen swallow?</text>
   </div>
 </div>
@@ -15,60 +15,3 @@ integrity="sha512-yocoLferfPbcwpCMr8v/B0AB4SWpJlouBwgE0D3ZHaiP1nuu5djZclFEIj9znu
     bar.style.backgroundColor = scale(prop).hex()
   }, 100);
 </script>
-
-<!-- import React from 'react'
-import "../../styles/questions.css";
-import { Col, Container, Row } from 'react-bootstrap';
-
-const Questions = () => {
-
-    const questionLoad = () => {
-          const quest =  await fetch('https://opentdb.com/api.php?amount=10')
-          const question = await quest.json().text
-        }
-
-    const result = (
-        <div>
-        <div id = "bar2">
-        <div id="bar">
-          <text>{question}</text>
-        </div>
-      </div>
-      <div className='d-flex align-items-center'>
-            <Container onClick={choose}>
-                <Container className= 'customBox border border-dark'>
-                    <Row>
-                        <Col className="box border border-dark">{answer1}</Col>
-                        <Col className="box border border-dark">{answer2}</Col>
-                    </Row>
-                    <Row>
-                        <Col className="box border border-dark">{answer3}</Col>
-                        <Col className="box border border-dark">{answer4}</Col>
-                    </Row>
-
-                </Container>
-            </Container>  
-        </div>
-        </div>
-        
-    )
-
-    let val = Number(bar.style.width.split("p")[0]);
-    let scale = chroma.scale(["red", "lime"]);
-    setInterval(() => {
-      val--;
-      bar.style.width = String(val) + "px";
-      let prop = Number(bar.style.width.split("p")[0])/Number(bar2.style.width.split("p")[0]);
-      bar.style.backgroundColor = scale(prop).hex()
-    }, 100);
-
-    const choose = function(e){
-        e.preventDefault;
-        e.target.closest("box border border-dark");
-        
-    }
-
-    return result
-}
-
-export default Questions -->

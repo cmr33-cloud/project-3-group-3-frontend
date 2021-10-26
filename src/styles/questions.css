@@ -1,10 +1,11 @@
-#bar2 {
+#bigBar {
   outline: 2px solid black;
   height: 100;
   width: 500;
 }
 
-#bar {
+#littleBar {
   height: 100;
   width: 500;
+  float: right
 }

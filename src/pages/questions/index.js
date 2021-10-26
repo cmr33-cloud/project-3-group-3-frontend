@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/questions.css";
+// import "../../styles/questions.css";
 import { Col, Container, Row } from "react-bootstrap";
+import chroma from "chroma-js";
 
 const Questions = () => {
   const [question, setQuestion] = useState("");
@@ -9,8 +10,8 @@ const Questions = () => {
     fetch("https://opentdb.com/api.php?amount=1")
       .then((res) => res.json())
       .then((def) => def.results[0])
-      .then(question => {
-          setQuestion(question);
+      .then((question) => {
+        setQuestion(question);
         const indices = [0, 1, 2, 3];
         const sortedindices = [];
         while (indices.length > 0) {
@@ -25,58 +26,64 @@ const Questions = () => {
         resps[sortedindices[3]] = question.incorrect_answers[2];
         setAnswer(resps);
       });
-  });
+  }, []);
 
-  const [width, setWidth] = useState(500);
+  const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
+
 
   useEffect(() => {
     const scale = chroma.scale(["red", "lime"]);
     setInterval(() => {
-      setWidth(width - 1);
-      setColour(scale(width / 500).hex());
+      setWidth((w) => w - 1);
+      setColour(scale(width / 700).hex());
     }, 100);
   }, []);
 
-//   const choose = function (e) {
-//     e.preventDefault();
-//     e.target.chosen = true;
-//     e.target.style.backgroundColor = "blue";
-//     document.querySelectorAll("box border border-dark").forEach((p) => {
-//       if (p !== e.target) {
-//         p.chosen = false;
-//         p.style.backgroundColor = "white";
-//       }
-//     });
-//   };
+  //   const choose = function (e) {
+  //     e.preventDefault();
+  //     e.target.chosen = true;
+  //     e.target.style.backgroundColor = "blue";
+  //     document.querySelectorAll("box border border-dark").forEach((p) => {
+  //       if (p !== e.target) {
+  //         p.chosen = false;
+  //         p.style.backgroundColor = "white";
+  //       }
+  //     });
+  //   };
 
-  const style = { width: String(width) + "px", backgroundColor: colour };
+  const style = {
+    width: String(width) + "px",
+    backgroundColor: colour,
+    height: 75,
+    float: "right"
+  }
+  const bigStyle = {
+    outline: "2px solid black",
+    height: 75,
+    width: 700,
+    margin: "auto"
+  };
 
   return (
     <div>
-      <div id="bigBar">
-        <div id="littleBar" style={style}>
-          <text>{question.question}</text>
+      <Container>
+        <div id="bigBar" style={bigStyle}>
+          <div id="littleBar" style={style}>
+            <text>{question.question}</text>
+          </div>
         </div>
-      </div>
+      </Container>
       <div className="d-flex align-items-center">
         <Container>
           <Container className="customBox border border-dark">
             <Row>
-              <Col className="box border border-dark" onClick={choose}>
-                {answers[0]}
-              </Col>
-              <Col className="box border border-dark" onClick={choose}>
-                {answers[1]}
-              </Col>
+              <Col className="box border border-dark">{answers[0]}</Col>
+              <Col className="box border border-dark">{answers[1]}</Col>
             </Row>
             <Row>
-              <Col className="box border border-dark" onClick={choose}>
-                {answers[2]}
-              </Col>
-              <Col className="box border border-dark" onClick={choose}>
-                {answers[3]}
-              </Col>
+              <Col className="box border border-dark">{answers[2]}</Col>
+              <Col className="box border border-dark">{answers[3]}</Col>
             </Row>
           </Container>
         </Container>
