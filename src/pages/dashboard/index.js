@@ -1,15 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+
 import { io } from "socket.io-client";
 import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
+
 export default function Dashboard() {
   const dispatch = useDispatch()
   const [redirect, setRedirect] = useState(false)
   const [userData, setUserData] = useState(null);
+
   const [gamesData, setGamesData] = useState(null)
+
   // function renderStats(stats) {
   //     Object.entries(stats).forEach(item => {
   //         console.log(item[0],item[1])
@@ -83,8 +87,10 @@ export default function Dashboard() {
   }, []);
 
   return (
+
     !redirect ? 
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
+
       <div className="row">
         <div className="col">
           <h1>{userData && userData.name}</h1>
@@ -119,7 +125,9 @@ export default function Dashboard() {
         </div>
       </div>
 
+
       
     </Container> : <Redirect to="/lobby"/>
+
   );
 }

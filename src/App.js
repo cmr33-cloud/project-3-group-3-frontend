@@ -2,9 +2,10 @@ import "./App.css";
 import React from "react";
 import Login from "./pages/Login/index";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
+
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import CustomNav from "./components/CustomNav";
@@ -15,6 +16,8 @@ import CreateRoom from "./pages/CreateRoom";
 import SelectCategory from "./pages/SelectCategory";
 import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
+import Questions from "./pages/questions";
+
 function App() {
   return (
     <div className="App">
@@ -65,9 +68,16 @@ function App() {
           <CustomNav />
           <Testing />
         </Route>
+        {/* Temperory Route */}
+        <Route path="/questions">
+          <Questions/>
+        </Route>
+
+
         <Route path="*">
           <NotFound />
         </Route>
+        
       </Switch>
     </div>
   );
