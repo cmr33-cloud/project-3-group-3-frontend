@@ -1,11 +1,29 @@
-import React from 'react'
+import React, {useEffect, useRef} from 'react'
+
 import { Container, Button } from 'react-bootstrap'
-
+import io from 'socket.io-client'
 export default function Lobby() {
+  
+  const socketRef = useRef()
 
-    function handleClick() {
+  function connect() {
+    const username = localStorage.getItem('username')
+    const socket = io("https://quiz-app-project-3.herokuapp.com/", {
+      withCredentials: true})
+    socketRef.current = socket;
+    socketRef.current.emit('join-room',username);
+    
+  }
 
-    }
+  useEffect(() => {
+    connect()
+  }, [])
+    
+    
+  
+  function handleClick() {
+
+  }
 
     return (
         <Container>
@@ -30,7 +48,7 @@ export default function Lobby() {
               <Button  id='invite'>Invite</Button>
           </div>
           <div className="col" id='start-game'>
-          <Button  id='start-game'>start game</Button>
+          <Button  id='start-game' onClick = {handleClick}>start game</Button>
           </div>
         </div>
         

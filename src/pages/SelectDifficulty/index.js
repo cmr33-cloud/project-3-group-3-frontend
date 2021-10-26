@@ -5,12 +5,22 @@ import { addDifficulty } from "../../actions";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
 import { getQuestions } from "../../actions";
+import io from 'socket.io-client'
 export default function SelectDifficulty() {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false)
   const category = useSelector(state => state.category)
   
   const search = (searchTerm) => dispatch(getQuestions(searchTerm))
+  
+  
+    function startSocket() {
+      const socket = io("https://quiz-app-project-3.herokuapp.com/", {
+        withCredentials: true
+      })
+      console.log(socket)
+    }
+  
   function handleClick(e) {
     console.log('clicked')
     dispatch(addDifficulty(e.target.id ))
@@ -24,6 +34,7 @@ export default function SelectDifficulty() {
       type
     }
     search(searchTerm)
+    startSocket()
     setRedirect(true)
   }
 

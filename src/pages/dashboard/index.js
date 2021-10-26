@@ -31,7 +31,7 @@ export default function Dashboard() {
         options
       );
       const data = await result.json();
-      console.log(data);
+      localStorage.setItem('username',data.name)
       if (isMounted) {
         setUserData(data);
       }
