@@ -1,8 +1,9 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import { getQuestions } from "../../actions";
 import { useDispatch } from "react-redux";
 import { Redirect,useHistory } from "react-router";
+
 
 export default function Testing() {
 const history = useHistory();
@@ -20,6 +21,7 @@ console.log(search)
     };
     search(searchTerm)
    // Questions(searchTerm)
+
   }
 
   // function handleClick(){
@@ -58,8 +60,10 @@ console.log(search)
         </Form.Group>
       </Form>
       <br/>
+
       <Button type="button" onClick={()=>history.push('./questions')}>Start Quiz</Button>
       {/* <Redirect from='/testing' to='/questions'/> */}
     </div>
   );
 }
+

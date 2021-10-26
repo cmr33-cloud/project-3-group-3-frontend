@@ -1,3 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+
+  .sidebar-icon {
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-300 text-indigo-600
+    hover:bg-indigo-400 hover:text-white
+    hover:cursor-pointer
+    rounded-3xl hover:rounded-xl
+    transition-all duration-300 ease-linear;
+    
+
+
+  }
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14
+    rounded-md shadow-md
+    text-white bg-gray-900
+    text-xs font-bold
+    transition-all duration-100 scale-0 origin-left z-10;
+    z-index: 20;
+  }
+
+  .custom-nav {
+    @apply p-2 top-0 left-0 bg-gray-300 z-10;
+  }
+  .custom-nav-text {
+    @apply text-indigo-700 drop-shadow-lg;
+  }
+  .dashboard-container {
+    @apply rounded-md shadow-lg;
+  }
+  .options-box {
+    @apply w-auto align-middle justify-center p-2 m-2
+    hover:cursor-pointer;
+    height: 400px;
+    
+  }
+  .options-box-categories {
+    @apply w-auto align-middle justify-center p-2 m-2;
+    height: 400px;
+  }
+  .category-box {
+    @apply w-auto align-middle justify-center p-2 m-2
+    hover:cursor-pointer;
+  }
+  .messages-box {
+    @apply flex flex-col w-auto justify-items-start p-2 m-2 border-2 border-secondary;
+    overflow: auto;
+    height: 250px;
+  }
+  .game-info-container {
+    @apply flex flex-col w-auto p-2 m-2;
+    overflow: auto;
+    height: 250px;
+  }
+  .gamesLink {
+    @apply hover:cursor-pointer;
+  }
+  .sent-self {
+    text-align: left;
+  }
+  .sent-other {
+    text-align: right;
+  }
+  
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
