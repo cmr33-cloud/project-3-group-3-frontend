@@ -6,7 +6,7 @@ import Chat from './Chat'
 import WaitingRoom from './WaitingRoom'
 export default function Lobby() {
   const socketRef = useRef()
-  const [currentRoom, setCurrentRoom] = useState(socketRef.current ? socketRef.current.id : "")
+  const [currentRoom, setCurrentRoom] = useState('test-room')
   const [messages, setMessages] = useState([])
   
 
@@ -25,14 +25,12 @@ export default function Lobby() {
       withCredentials: true})
     socket.connect()
     socketRef.current = socket;
-    setTimeout(() => {
-      setCurrentRoom(socketRef.current.id)
-    }, 100);
+    
     socketRef.current.emit('join-room',username)
     socketRef.current.on('display-messages', payload => {
       console.log('messages receieved')
       console.log(payload.messages, payload.room)
-      setCurrentRoom(payload.room)
+      // setCurrentRoom(payload.room)
       setMessages(payload.messages)
       console.log(messages)
       
@@ -68,7 +66,7 @@ export default function Lobby() {
                 </Container> */}
         <div className="row p-2 m-2">
           <div className="col options-box card" id='chat'>
-            <Chat roomId={socketRef.current ? socketRef.current.id : ""} messages={messages} currentRoom = {currentRoom} setCurrentRoom={setCurrentRoom} sendMessage={sendMessage}/>
+            <Chat roomId={'test-room'} messages={messages} currentRoom = {currentRoom} setCurrentRoom={setCurrentRoom} sendMessage={sendMessage}/>
           </div>
           <div className="col options-box card" id='waiting-room'>
             <WaitingRoom/>
