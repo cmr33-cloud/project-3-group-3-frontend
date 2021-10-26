@@ -16,7 +16,7 @@ import CreateRoom from "./pages/CreateRoom";
 import SelectCategory from "./pages/SelectCategory";
 import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
-import Questions from "./pages/questions";
+import Questions from "./pages/Questions";
 
 function App() {
   return (
