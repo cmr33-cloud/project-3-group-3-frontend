@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import Login from "./pages/login/index";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
 import Dashboard from "./pages/dashboard";
@@ -25,7 +25,7 @@ function App() {
           <Questions/>
         </Route>
 
-        
+
         <Route path="*">
           <NotFound />
         </Route>

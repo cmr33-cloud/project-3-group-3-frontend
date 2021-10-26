@@ -2,10 +2,10 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { getQuestions } from "../../actions";
 import { useDispatch } from "react-redux";
-import Questions from "../questions";
+import { Redirect,useHistory } from "react-router";
 
 export default function Testing() {
-
+const history = useHistory();
 const dispatch = useDispatch();
 const search = (searchTerm) => dispatch(getQuestions(searchTerm))
 //const allQuestions = (searchTerm) => dispatch(fetchQuestions(searchTerm))
@@ -22,11 +22,11 @@ console.log(search)
    // Questions(searchTerm)
   }
 
-  function handleClick(){
-    window.location.href = 'http://localhost:3000/questions'
-    console.log("hello")
+  // function handleClick(){
+  //   // window.location.href = 'http://localhost:3000/questions'
+  //    <Redirect from='/testing' to='/questions'/>
   
-  }
+  // }
 
   return (
     <div>
@@ -58,8 +58,8 @@ console.log(search)
         </Form.Group>
       </Form>
       <br/>
-      <Button type="button" onClick={()=>handleClick()}>Start Quiz</Button>
-      
+      <Button type="button" onClick={()=>history.push('./questions')}>Start Quiz</Button>
+      {/* <Redirect from='/testing' to='/questions'/> */}
     </div>
   );
 }

@@ -1,68 +1,111 @@
 import React,{useEffect}from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import chroma from "chroma-js";
 const Questions = () => {
   const questions = useSelector((state) => state.questions);
-  const noOfQuestions = questions.length;
-  console.log(questions);
+  const noOfQuestions = questions.length
+  const [questNo, setQuestNo] = useState(0)
+  //const [questions, setQuestions] = useState("");
+  const [answers, setAnswers] = useState([null, null, null, null]);
+  const [status, setStatus] = useState(false);
 
-  const [currentQuestNo, setCurrentQuestNo] = useState(0);
-  console.log("currentQuestNo" + currentQuestNo)
-  const [newAnswersArr,setNewAnswerArr] = useState(questions[currentQuestNo].incorrect_answers)
-//   console.log(currentQuestNo)
-//   console.log(questions[currentQuestNo].incorrect_answers.length);
+  const [width, setWidth] = useState(700);
+  const [colour, setColour] = useState("lime");
+
+  useEffect(()=>{
+
+    const indices = [0, 1, 2, 3];
+    const sortedindices = [];
+    while (indices.length > 0) {
+      const index = Math.floor(Math.random() * [indices.length]);
+      sortedindices.push(indices[index]);
+      indices.splice(index, 1);
+    }
+    const resps = [null, null, null, null];
+    resps[sortedindices[0]] = questions[questNo].correct_answer;
+    resps[sortedindices[1]] = questions[questNo].incorrect_answers[0];
+    resps[sortedindices[2]] = questions[questNo].incorrect_answers[1];
+    resps[sortedindices[3]] = questions[questNo].incorrect_answers[2];
+    setAnswers(resps);
+  }, [questNo])
+
 
   useEffect(() => {
-    // let newAnswersArr = questions[currentQuestNo].incorrect_answers;
-    // console.log(newAnswersArr)
-    const randomNumber =Math.floor(Math.random() * newAnswersArr.length) ;
-    console.log(randomNumber);
-    newAnswersArr.splice(randomNumber,0,questions[currentQuestNo].correct_answer);
-    setNewAnswerArr(newAnswersArr)
-    console.log(newAnswersArr);
-      return () => {
-        
+    const scale = chroma.scale(["lime", "red"]);
+    const currentTime = new Date().getTime()
+    console.log(currentTime)
+    const inter = setInterval(() => {
+      const intervalTime = new Date().getTime() - currentTime
+      setWidth((w) => w - 7);
+      setColour(scale(intervalTime / 10000).hex());
+      //console.log(width)
+      if(intervalTime>=10000){
+        console.log("It worked..?")
+        clearInterval(inter)
+        setWidth(700)
+        setColour("lime")
+        if(questNo<noOfQuestions-1)
+        {setQuestNo(questNo=>questNo+1)}
+        else {setStatus(true)}
       }
-  })
 
+    }, 100);
     
-  
-      
+    
+  },[questNo]);
 
   
-  const handleClick = () => {
-    if (currentQuestNo < noOfQuestions - 1) {
-      const updatedQuestNo = currentQuestNo + 1;
-      setCurrentQuestNo(updatedQuestNo);
-      setNewAnswerArr(questions[updatedQuestNo].incorrect_answers)
-      console.log(newAnswersArr);
-    }
-  };
+  //   const choose = function (e) {
+  //     e.preventDefault();
+  //     e.target.chosen = true;
+  //     e.target.style.backgroundColor = "blue";
+  //     document.querySelectorAll("box border border-dark").forEach((p) => {
+  //       if (p !== e.target) {
+  //         p.chosen = false;
+  //         p.style.backgroundColor = "white";
+  //       }
+  //     });
+  //   };
 
-  
+  const style = {
+    width: String(width) + "px",
+    backgroundColor: colour,
+    height: 75,
+    float: "right",
+  }
+  const bigStyle = {
+    outline: "2px solid black",
+    height: 75,
+    width: 700,
+    margin: "auto"
+  }
+  const textStyle = {float: "center", margin: "auto"}
 
   return (
     <div>
       <Container>
-        <div className="card">
-          <h4>
-            Question {currentQuestNo + 1} / {noOfQuestions} <br />
-            {questions[currentQuestNo].question}
-          </h4>
-
-          {newAnswersArr.map((answer) => {
-            return <h4>{answer}</h4>;
-          })}
-          <button
-            className="center"
-            style={{ width: "100px" }}
-            onClick={handleClick}
-          >
-            Next
-          </button>
+        <div id="bigBar" style={bigStyle}>
+          <div id="littleBar" style={style}>
+            <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
+          </div>
         </div>
       </Container>
+      <div className="d-flex align-items-center">
+        <Container>
+          <Container className="customBox border border-dark">
+            <Row>
+              <Col className="box border border-dark">{answers[0]}</Col>
+              <Col className="box border border-dark">{answers[1]}</Col>
+            </Row>
+            <Row>
+              <Col className="box border border-dark">{answers[2]}</Col>
+              <Col className="box border border-dark">{answers[3]}</Col>
+            </Row>
+          </Container>
+        </Container>
+      </div>
     </div>
   );
 };
