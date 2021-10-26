@@ -1,4 +1,4 @@
-const loadQuestions = (questionsData) => ({
+export const loadQuestions = (questionsData) => ({
     type: 'LOAD_QUESTIONS',
     payload: questionsData
 });
