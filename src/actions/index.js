@@ -19,6 +19,11 @@ export const addDifficulty = (payload) => ({
     payload
 })
 
+export const addMessage = (payload) => ({
+  type: 'ADD_MESSAGE',
+  payload
+})
+
 
 
 export const getQuestions = (searchTerm) => {
