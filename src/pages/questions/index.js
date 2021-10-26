@@ -10,7 +10,7 @@ const Questions = () => {
   //const [questions, setQuestions] = useState("");
   const [answers, setAnswers] = useState([null, null, null, null]);
   const [status, setStatus] = useState(false);
-  const [selected, setSelected] = useState(false)
+  const [selected, setSelected] = useState([false,null])
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
 
@@ -71,17 +71,17 @@ const Questions = () => {
 
   function createScore(e){
     e.preventDefault();
-    // console.log(selected[0],selected[1])
-    // if (selected[0]===true){
-    //   selected[1].style.backgroundColor = "#FFFFFF"
-    // }
+    console.log(selected[0],selected[1])
+    if (selected[0]===true){
+      selected[1].style.backgroundColor = "#FFFFFF"
+    }
     const card = e.target;
     // console.log(card.parentNode.parentNode.children)
     // console.log(card.innerText)
     console.log(card)
     // setSelected(card)
     card.style.backgroundColor = "#00BFFF"
-    setSelected(true,card)
+    setSelected([true,card])
 // if(card.parentNode.parentNode.children[0].children[0]!==selected){card.parentNode.parentNode.children[0].children[0].style.backgroundColor = "white"}
 // if(card.parentNode.parentNode.children[0].children[1]!==selected){card.parentNode.parentNode.children[0].children[1].style.backgroundColor = "white"}
 // if(card.parentNode.parentNode.children[1].children[0]!==selected){card.parentNode.parentNode.children[1].children[0].style.backgroundColor = "white"}
