@@ -8,6 +8,7 @@ export default function Chat(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.sendMessage(e);
+    e.target[0].value=''
   }
 
 
