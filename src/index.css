@@ -45,6 +45,9 @@
     @apply w-auto align-middle justify-center p-2 m-2
     hover:cursor-pointer;
   }
+  .messages-box {
+    @apply flex w-auto justify-items-start p-2 m-2 border-2 border-secondary;
+  }
   
 }
 
