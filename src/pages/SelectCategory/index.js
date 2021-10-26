@@ -38,20 +38,20 @@ export default function SelectCategory() {
           <div className="col options-box-categories card">
           <h1>select category</h1>
             <div className="row">
-              <div className="col category-box card" id='9' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='10' onClick={handleClick}>category</div>
+              <div className="col category-box card" id='9' onClick={handleClick}>General Knowledge</div>
+              <div className="col category-box card" id='17' onClick={handleClick}>Science & Nature</div>
             </div>
             <div className="row">
-              <div className="col category-box card" id='12' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='13' onClick={handleClick}>category</div>
+              <div className="col category-box card" id='18' onClick={handleClick}>Science: Computers</div>
+              <div className="col category-box card" id='21' onClick={handleClick}>Sports</div>
             </div>
             <div className="row">
-              <div className="col category-box card" id='14' onClick={handleClick}>category</div>
-              <div className="col category-box card" id='15' onClick={handleClick}>category</div>
+              <div className="col category-box card" id='27' onClick={handleClick}>Animals</div>
+              <div className="col category-box card" id='22' onClick={handleClick}>Geography</div>
             </div>
             <div className="row">
-            <div className = 'col category-box card ' id='16' onClick={handleClick}>category</div>
-                  <div className = 'col category-box card' id='17' onClick={handleClick}>category</div>
+            <div className = 'col category-box card ' id='23' onClick={handleClick}>History</div>
+                  <div className = 'col category-box card' id='24' onClick={handleClick}>Politics</div>
             </div>
             <div className="row">
             <div className = 'col category-box card'>custom</div>
