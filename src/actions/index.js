@@ -15,7 +15,7 @@ export const getQuestions = (searchTerm) => {
     };
   };
 
-const fetchQuestions = async (searchTerm) => {
+export const fetchQuestions = async (searchTerm) => {
     //need to retrieve amount, category, difficulty, type from search term
     const {amount, category, difficulty, type} = searchTerm
     console.log(amount, category, difficulty, type)

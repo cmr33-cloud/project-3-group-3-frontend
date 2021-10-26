@@ -1,8 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+
+
 export default function Dashboard() {
   const [userData, setUserData] = useState(null);
+
 
   // function renderStats(stats) {
   //     Object.entries(stats).forEach(item => {
@@ -43,6 +46,7 @@ export default function Dashboard() {
   }, []);
 
   return (
+    <>
     <Container className="d-flex w-80 card mt-5">
       <div className="row">
         <div className="col">
@@ -63,8 +67,8 @@ export default function Dashboard() {
       </Container>
         </div>
       </div>
-
-      
     </Container>
+    
+    </>
   );
 }
