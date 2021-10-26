@@ -90,24 +90,26 @@ const Questions = () => {
   const style = {
     width: String(width) + "px",
     backgroundColor: colour,
-    height: 75,
+    height: 8,
     float: "right",
+    borderRadius: "25px",
+    verticalAlign: "bottom"
   }
   const bigStyle = {
     outline: "2px solid black",
     height: 75,
     width: 700,
-    margin: "auto"
+    margin: "auto",
+    borderRadius: "25px"
   }
-  const textStyle = {float: "center", margin: "auto"}
+  const textStyle = {float: "center", margin: "auto", color: "white"}
 
   return (
     <div className = 'card mt-5' >
       <Container className = 'mt-5'>
         <div id="bigBar" style={bigStyle}>
-          <div id="littleBar" style={style}>
-            <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
-          </div>
+        <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
+          <div id="littleBar" style={style}></div>
         </div>
       </Container>
       <div className="d-flex align-items-center" onClick={(e) => createScore(e)}>

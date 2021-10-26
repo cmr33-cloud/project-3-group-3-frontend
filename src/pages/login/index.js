@@ -58,12 +58,10 @@ const Login = () => {
       <Modal.Body>
         <Form onSubmit = {handleSubmit}>
           <Form.Group>
-            <Form.Label> email address</Form.Label>
-            <Form.Control type="email" placeholder = "enter email..."></Form.Control>
+            <Form.Control type="email" placeholder = "email"></Form.Control>
             {activeModal && activeModal.title === 'register' ? <><Form.Label> name </Form.Label>
             <Form.Control type='text' placeholder = 'name'></Form.Control></> : ''}
-            <Form.Label> password </Form.Label>
-            <Form.Control type='password' placeholder = 'enter password ...'></Form.Control>
+            <Form.Control type='password' placeholder = 'password'></Form.Control>
             <Button type='submit'>Submit</Button>
           </Form.Group>
         </Form>
