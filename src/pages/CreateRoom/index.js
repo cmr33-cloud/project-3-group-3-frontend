@@ -5,6 +5,8 @@ import { Redirect } from "react-router";
 import { addGamemode } from "../../actions";
 export default function CreateRoom() {
 
+
+    
     const [redirect, setRedirect] = useState(false)
     
     const dispatch = useDispatch()
@@ -14,6 +16,7 @@ export default function CreateRoom() {
         setRedirect(true)
         
     }
+
 
 
   return (

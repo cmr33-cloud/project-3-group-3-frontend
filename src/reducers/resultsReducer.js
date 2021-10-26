@@ -21,6 +21,10 @@ const resultsReducer = (state = initialState, { type, payload }) => {
     case 'ADD_MESSAGE':
         return {...state, messages: [...state.messages, payload]}
 
+    case 'ADD_SOCKET':
+        return {...state, socket: payload}
+
+
     default:
         return state
     }

@@ -50,6 +50,14 @@
     overflow: auto;
     height: 250px;
   }
+  .game-info-container {
+    @apply flex flex-col w-auto p-2 m-2;
+    overflow: auto;
+    height: 250px;
+  }
+  .gamesLink {
+    @apply hover:cursor-pointer;
+  }
   
 }
 

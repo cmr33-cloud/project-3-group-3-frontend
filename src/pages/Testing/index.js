@@ -3,11 +3,13 @@ import { Form, Button, Container } from "react-bootstrap";
 import { getQuestions } from "../../actions";
 import { useDispatch } from "react-redux";
 
+
 export default function Testing() {
 
 const dispatch = useDispatch();
 const search = (searchTerm) => dispatch(getQuestions(searchTerm))
-
+//const allQuestions = (searchTerm) => dispatch(fetchQuestions(searchTerm))
+console.log(search)
   function handleSubmit(e) {
     e.preventDefault();
     const searchTerm = {
@@ -17,6 +19,13 @@ const search = (searchTerm) => dispatch(getQuestions(searchTerm))
       type: e.target[3].value,
     };
     search(searchTerm)
+   // Questions(searchTerm)
+  }
+
+  function handleClick(){
+    window.location.href = 'http://localhost:3000/questions'
+    console.log("hello")
+  
   }
 
   return (
@@ -43,9 +52,13 @@ const search = (searchTerm) => dispatch(getQuestions(searchTerm))
             type="text"
             placeholder="multiple/boolean"
           ></Form.Control>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" >Submit</Button>
+          
+          {/* searchQ={search} */}
         </Form.Group>
       </Form>
+      <br/>
+      <Button type="button" onClick={()=>handleClick()}>Start Quiz</Button>
+      
     </Container>
-  );
-}
+  )}

@@ -3,8 +3,10 @@ import React, {useEffect, useRef, useState} from 'react'
 import { Container, Button } from 'react-bootstrap'
 import io from 'socket.io-client'
 import Chat from './Chat'
+import { useSelector } from 'react-redux'
 import WaitingRoom from './WaitingRoom'
 export default function Lobby() {
+  const existingSocket = useSelector(state => state.socket)
   const socketRef = useRef()
   const [currentRoom, setCurrentRoom] = useState('test-room')
   const [messages, setMessages] = useState([])
@@ -20,13 +22,20 @@ export default function Lobby() {
 
 
   function connect() {
-    const username = localStorage.getItem('username')
-    const socket = io("https://quiz-app-project-3.herokuapp.com/", {
+    let socket;
+    if (!existingSocket) {
+      socket = io("https://quiz-app-project-3.herokuapp.com/", {
       withCredentials: true})
-    socket.connect()
+      socket.connect()
+    }
+    else {
+      socket = existingSocket
+    }
     socketRef.current = socket;
-    
-    socketRef.current.emit('join-room',username)
+    const username = localStorage.getItem('username')
+    const roomName = `${username}-room`
+    setCurrentRoom(roomName)
+    socketRef.current.emit('create-room',roomName)
     socketRef.current.on('display-messages', payload => {
       console.log('messages receieved')
       console.log(payload.messages, payload.room)

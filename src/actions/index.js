@@ -23,6 +23,12 @@ export const addMessage = (payload) => ({
   type: 'ADD_MESSAGE',
   payload
 })
+export const addSocket = (payload) => ({
+  type: 'ADD_SOCKET',
+  payload
+})
+
+
 
 
 
