@@ -11,25 +11,22 @@ export default function Testing() {
   const search = (searchTerm) => dispatch(getQuestions(searchTerm));
   //const allQuestions = (searchTerm) => dispatch(fetchQuestions(searchTerm))
   console.log(search);
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     console.log(
-      e.target,
-      e.target.children.children,
       e.target[0].value,
       e.target[1].value,
       e.target[2].value,
       e.target[3].value
-    );
-
-    const searchTerm = {
+    ); 
+    const searchTerm = await {
       amount: e.target[0].value,
       category: e.target[1].value,
       difficulty: e.target[2].value,
       type: e.target[3].value,
     };
-    search(searchTerm);
-
+    await search(searchTerm);
+    await history.push("./questions")
     // Questions(searchTerm)
   }
 
@@ -40,22 +37,12 @@ export default function Testing() {
   // }
 
   const style = { margin: "auto", width: 400 };
-  const typeOptions = [
-    { value: "multiple", label: "Multiple choice" },
-    { value: "boolean", label: "True or False" },
-  ];
-
-  const difficultyOptions = [
-    { value: "easy", label: "Easy" },
-    { value: "medium", label: "Medium" },
-    { value: "hard", label: "Hard" },
-  ];
 
   return (
     <div style={style}>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Label> number of questions</Form.Label>
+          <Form.Label> Number of questions</Form.Label>
           <Form.Control
             type="number"
             placeholder="number of questions..."
@@ -100,16 +87,12 @@ export default function Testing() {
           <Form.Select>
           <option value="multiple">Multiple choice</option>
             <option value="boolean">True or False</option></Form.Select>.
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Start quiz</Button>
 
           {/* searchQ={search} */}
         </Form.Group>
       </Form>
       <br />
-
-      <Button type="button" onClick={() => history.push("./questions")}>
-        Start Quiz
-      </Button>
       {/* <Redirect from='/testing' to='/questions'/> */}
     </div>
   );

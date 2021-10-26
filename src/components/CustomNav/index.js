@@ -8,7 +8,7 @@ export default function CustomNav() {
                     <Container className = 'd-flex flex-row align-items-center justify-content-center'>
                     <h2 className = 'custom-nav-text'>Inquizitive</h2>
                     <br/>
-                    <p className = 'custom-nav-text'>catchy slogan</p>
+                    <p className = 'custom-nav-text'>Izzy whizzy let's get quizzy</p>
                     </Container>
                     </Navbar.Brand>
                 

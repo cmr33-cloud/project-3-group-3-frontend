@@ -2,6 +2,7 @@ import React,{useEffect}from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+// import Text from "react-native";
 import chroma from "chroma-js";
 const Questions = () => {
   const questions = useSelector((state) => state.questions);
@@ -90,10 +91,9 @@ const Questions = () => {
   const style = {
     width: String(width) + "px",
     backgroundColor: colour,
-    height: 8,
+    height: 75,
     float: "right",
-    borderRadius: "25px",
-    verticalAlign: "bottom"
+    borderRadius: "25px"
   }
   const bigStyle = {
     outline: "2px solid black",
@@ -108,8 +108,9 @@ const Questions = () => {
     <div className = 'card mt-5' >
       <Container className = 'mt-5'>
         <div id="bigBar" style={bigStyle}>
-        <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
-          <div id="littleBar" style={style}></div>
+          <div id="littleBar" style={style}>
+          <text style = {textStyle}>{questions[questNo] && questions[questNo].question}</text>
+          </div>
         </div>
       </Container>
       <div className="d-flex align-items-center" onClick={(e) => createScore(e)}>
