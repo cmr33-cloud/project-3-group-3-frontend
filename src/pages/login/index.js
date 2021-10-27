@@ -1,4 +1,4 @@
-import "../../styles/login.css";
+import "../../Styles/Login.css";
 import React, { useState } from "react";
 import {Modal, Button, Form} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -50,7 +50,7 @@ const Login = () => {
   return (
 
     <>
-    <Modal show={show}>
+    <Modal className="modal" show={show}>
       <Modal.Header>
         <Modal.Title>
             {activeModal && activeModal.title}
@@ -59,12 +59,13 @@ const Login = () => {
       <Modal.Body>
         <Form onSubmit = {handleSubmit}>
           <Form.Group>
-            <Form.Label> email address</Form.Label>
-            <Form.Control type="email" placeholder = "enter email..."></Form.Control>
-            {activeModal && activeModal.title === 'register' ? <><Form.Label> name </Form.Label>
-            <Form.Control type='text' placeholder = 'name'></Form.Control></> : ''}
-            <Form.Label> password </Form.Label>
-            <Form.Control type='password' placeholder = 'enter password ...'></Form.Control>
+            <Form.Label> Email Address</Form.Label>
+            <Form.Control className="mb-3" type="email" placeholder = "enter email..."></Form.Control>
+            {activeModal && activeModal.title === 'register' ? <><Form.Label> Name </Form.Label>
+            <Form.Control className="mb-3" type='text' placeholder = 'name'></Form.Control></> : ''}
+            <Form.Label> Password </Form.Label>
+            <Form.Control className="mb-0" type='password' placeholder = 'enter password ...'></Form.Control>
+            <br/>
             <Button type='submit'>Submit</Button>
           </Form.Group>
         </Form>
