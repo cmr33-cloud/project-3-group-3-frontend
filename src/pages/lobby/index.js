@@ -59,7 +59,7 @@ export default function Lobby() {
     //check if the host started the game
     if (username === room.split("-")[0]) {
       console.log('you are the host')
-      socket.emit('start-game', {questions: questions, room: room})
+      socket.emit('start-game', {questions: questions, room: room, participants: participants})
     }
     else {
       console.log('only the host can start the game')
