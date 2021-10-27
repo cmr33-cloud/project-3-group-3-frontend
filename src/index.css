@@ -33,6 +33,20 @@
   .custom-nav-text {
     @apply text-indigo-700 drop-shadow-lg;
   }
+
+  .game-mode-options-classic{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-blue-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-knockout{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-red-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-quickfire{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-green-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-custom{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-yellow-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+
   .dashboard-container {
     @apply rounded-md shadow-lg left-6;
   }
@@ -44,10 +58,10 @@
   }
   .options-box-categories {
     @apply w-auto align-middle justify-center p-2 m-2;
-    height: 400px;
+    height: auto;
   }
   .category-box {
-    @apply w-auto align-middle justify-center p-2 m-2
+    @apply w-auto align-middle justify-center p-2 m-2 
     hover:cursor-pointer;
   }
   .messages-box {
@@ -109,6 +123,30 @@
   }
   .available-games-text h4 {
     @apply text-lg;
+  }
+  .search {
+    @apply hover:text-red-500
+  }
+  .science {
+    @apply hover:text-green-500
+  }
+  .computers {
+    @apply hover:text-purple-500
+  }
+  .sports {
+    @apply hover:text-yellow-500
+  }
+  .animals {
+    @apply hover:text-blue-500
+  }
+  .geography {
+    @apply hover:text-gray-500
+  }
+  .history {
+    @apply hover:text-pink-500
+  }
+  .politics {
+    @apply hover:text-yellow-900
   }
   
 }
