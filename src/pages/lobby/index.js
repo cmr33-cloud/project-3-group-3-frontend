@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import moment from 'moment'
 import { Container, Button } from "react-bootstrap";
 import io from "socket.io-client";
 import Chat from "./Chat";
@@ -45,6 +45,7 @@ export default function Lobby() {
     const message = e.target[0].value;
     const username = localStorage.getItem("username");
     socket.emit("send-message", {
+      timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
       username: username,
       room: room,
       message: message,

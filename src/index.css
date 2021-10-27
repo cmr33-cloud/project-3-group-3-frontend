@@ -58,6 +58,14 @@
   .gamesLink {
     @apply hover:cursor-pointer;
   }
+  .sent-title  {
+    @apply text-purple-500;
+  }
+
+  .sent-timestamp {
+    @apply text-gray-500 text-xs;
+  }
+
   .sent-self {
     text-align: left;
   }

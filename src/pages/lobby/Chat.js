@@ -22,10 +22,15 @@ export default function Chat(props) {
                         props.messages.map((obj, index) => {
                             const lastMessage = props.messages.length-1 === index;
                             return (<>
-                                <h2 key={`sender-key-${index}`} className={obj.username === username ? `sent-self` : `sent-other`}>{obj.username}</h2>
-                                <p ref={lastMessage ? setRef : null} key={`message-key-${index}`} className="m-2" className={obj.username === username ? `sent-self` : `sent-other`} >
+                                <h2 key={`sender-key-${index}`} className={obj.username === username ? `sent-self sent-title` : `sent-other sent-title`}>{obj.username}</h2>
+                                <p ref={lastMessage ? setRef : null} key={`message-key-${index}`} className="m-2" className={obj.username === username ? `sent-self sent` : `sent sent-other`} >
                                     {obj.message}
+                                    
                                 </p>
+                                <p ref={lastMessage ? setRef : null} key={`timestamp-key-${index}`} className="m-2" className={obj.username === username ? `sent-self sent sent-timestamp` : `sent sent-other sent-timestamp`}>
+                                    {obj.timestamp}
+                                </p>
+                                
                             </>)
                         }
 
