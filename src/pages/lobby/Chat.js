@@ -25,12 +25,10 @@ export default function Chat(props) {
                                 <h2 key={`sender-key-${index}`} className={obj.username === username ? `sent-self sent-title` : `sent-other sent-title`}>{obj.username}</h2>
                                 <p ref={lastMessage ? setRef : null} key={`message-key-${index}`} className="m-2" className={obj.username === username ? `sent-self sent` : `sent sent-other`} >
                                     {obj.message}
-                                    
                                 </p>
                                 <p ref={lastMessage ? setRef : null} key={`timestamp-key-${index}`} className="m-2" className={obj.username === username ? `sent-self sent sent-timestamp` : `sent sent-other sent-timestamp`}>
                                     {obj.timestamp}
                                 </p>
-                                
                             </>)
                         }
 
