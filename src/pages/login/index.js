@@ -2,6 +2,7 @@ import "../../styles/login.css";
 import React, { useState } from "react";
 import {Modal, Button, Form} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import logo from "../../images/inquizitive.png"
 
 const Login = () => {
 
@@ -75,9 +76,9 @@ const Login = () => {
     </Modal>
 
 
-    <div>
-      <div className="buttons">
-        <div className="container">
+    <div className="d-flex justify-content-center flex-col align-items-center">
+      <img className="demo-logo" src={logo} alt="Inquizitive Logo"></img>
+        <div className="container buttons">
           <div className="row justify-content-center">
             <div className="col-7 col-md-5 col-xl-4 col-xl-3">
               <button id="login-button" onClick={() => {
@@ -88,12 +89,10 @@ const Login = () => {
                 setActiveModal({
                   title: 'register' });
                 setShow(true)}}>Register</button>
-              
             </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

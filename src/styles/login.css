@@ -10,13 +10,7 @@ body {
     background-color: var(--bg-colour-light);
     height: 100vh;
 }
-#particles-js {
-    height: 100vh;
-}
-.animated-logo {
-    width: 100%;
-    border-radius: 30px;
-}
+
 .app {
     position: absolute;
     top: 60px;
