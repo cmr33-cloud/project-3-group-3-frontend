@@ -10,9 +10,14 @@
     rounded-3xl hover:rounded-xl
     transition-all duration-300 ease-linear;
     
-
-
   }
+    h1 {
+      @apply text-secondary;
+    }
+    h2, h3 {
+      @apply text-purple-500;
+    }
+  
   .sidebar-tooltip {
     @apply absolute w-auto p-2 m-2 min-w-max left-14
     rounded-md shadow-md
@@ -91,7 +96,7 @@
   }
 
   .stats h3 {
-    @apply ml-10 text-left text-xl;
+    @apply ml-10 text-left text-xl text-black;
   }
   .available-games-title {
     @apply text-secondary;
@@ -105,6 +110,7 @@
   .available-games-text h4 {
     @apply text-lg;
   }
+  
 }
 
 

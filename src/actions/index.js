@@ -35,6 +35,14 @@ export const addScore = (payload) => ({
   type: 'ADD_SCORE',
   payload
 })
+export const addSelected = (payload) => ({
+  type: 'ADD_SELECTED',
+  payload
+})
+export const addGameId = (payload) => ({
+  type: 'ADD_GAMEID',
+  payload
+})
 
 
 
