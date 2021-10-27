@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux';
 
 export default function WaitingRoom(props) {
 
     const [gamesData,setGamesData] = useState(null)
-
+    const socket = useSelector(state => state.socket)
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -44,6 +45,7 @@ export default function WaitingRoom(props) {
                     <p key={`participant ${index}`}>{p}</p>
                 )
             })}
+            <h3>Your id: {socket.id}</h3>
         </div>
     )
 }
