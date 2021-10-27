@@ -22,8 +22,9 @@ export default function Lobby() {
     socket.emit("join-room", room);
     socket.on("display-messages", (payload) => {
       console.log("messages receieved");
-      console.log(payload.messages, payload.room);
+      console.log(payload.messages, payload.room, payload.participants);
       // setCurrentRoom(payload.room)
+      
       setMessages(payload.messages);
       setParticipants(payload.participants)
       console.log(messages);
@@ -47,6 +48,7 @@ export default function Lobby() {
       username: username,
       room: room,
       message: message,
+      participants: participants
     });
   }
 
@@ -89,7 +91,7 @@ export default function Lobby() {
           />
         </div>
         <div className="col options-box card" id="waiting-room">
-          <WaitingRoom roomId={room} />
+          <WaitingRoom roomId={room} participants={participants}/>
         </div>
       </div>
       <div className="row p-2 m-2">

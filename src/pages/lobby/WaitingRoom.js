@@ -5,6 +5,7 @@ export default function WaitingRoom(props) {
 
     const [gamesData,setGamesData] = useState(null)
     const socket = useSelector(state => state.socket)
+    console.log(props.participants)
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -40,7 +41,8 @@ export default function WaitingRoom(props) {
     return (
         <div>
           <h2>Waiting room for {props.roomId}</h2>
-            {gamesData && gamesData.participants.map((p,index) => {
+            {props.participants && props.participants.map((p,index) => {
+                console.log(p)
                 return (
                     <p key={`participant ${index}`}>{p}</p>
                 )
