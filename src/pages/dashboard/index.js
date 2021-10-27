@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import "../../styles/dashboard.css"
+import "../../Styles/Dashboard.css"
 import { io } from "socket.io-client";
 import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -91,10 +91,12 @@ export default function Dashboard() {
     !redirect ? 
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
 
-      <div className="row">
+      <div className="row main-container">
         <div className="col">
-          <h1 className="dashboard-name border boder border-dark mt-3 mb-3 rounded">{userData && userData.name}</h1>
-          <h2 className="dashboard-stats">Stats</h2>
+          <h1 className="dashboard-name border mt-3 mb-4 rounded fs-1 text">{userData && userData.name}</h1>
+          <div className="border rounded mb-3">
+          <h2 className="dashboard-stats fs-2 text pt-1 mb-0">Quiz Statistics</h2>
+          <hr className="mb-2 mt-3"/>
           <div>
             {userData &&
               Object.entries(userData.stats).map((item) => (
@@ -104,11 +106,12 @@ export default function Dashboard() {
               ))}
           </div>
         </div>
+        </div>
         <div className="col">
-        <h1>game info here</h1>
-        <Container className = 'card mt-5 game-info-container'>
+        <h1 className="mt-3">Game Information</h1>
+        <Container className = 'card mt-4 game-info-container'>
         
-        <div>
+        <div className="game-info-box">
             {gamesData &&
               gamesData.map((game) => (
                 <>
