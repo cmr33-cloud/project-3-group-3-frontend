@@ -38,6 +38,7 @@ export default function WaitingRoom(props) {
       }, []);
     return (
         <div>
+          <h2>Waiting room for {props.roomId}</h2>
             {gamesData && gamesData.participants.map((p,index) => {
                 return (
                     <p key={`participant ${index}`}>{p}</p>

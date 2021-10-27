@@ -64,6 +64,11 @@
   .sent-other {
     text-align: right;
   }
+
+  .bad-login {
+    text-align: left;
+    margin-left: -50px;
+  }
   
 }
 

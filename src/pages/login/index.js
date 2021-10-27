@@ -4,6 +4,7 @@ import {Modal, Button, Form} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
+  const [goodLogin, setGoodLogin] = useState(true)
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,9 +20,13 @@ const Login = () => {
           password: e.target[1].value
         })
       }
+      
       const result = await fetch('https://quiz-app-project-3.herokuapp.com/api/auth/login', options)
       const data = await result.json()
-      
+      if (result.status !== 200) {
+        setGoodLogin(false)
+        return
+      }
       localStorage.setItem('token',data.token);
     } else {
       const options = {
@@ -36,11 +41,20 @@ const Login = () => {
         })
       }
       const result = await fetch('https://quiz-app-project-3.herokuapp.com/api/auth/register', options)
+      console.log(result.status)
+      if (result.status !== 200) {
+        setGoodLogin(false)
+        return
+      }
       const data = await result.json()
-      
       localStorage.setItem('token',data.token)
+     
+    
+      
+   
     }
     window.location.href= './dashboard';
+    
     
   }
 
@@ -69,7 +83,7 @@ const Login = () => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        
+        <h2 className = 'bad-login'>{goodLogin ? "" : "bad login"}</h2>
         <Button onClick = {() => {setShow(false)}}>Close</Button>
       </Modal.Footer>
     </Modal>

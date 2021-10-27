@@ -80,7 +80,7 @@ function App() {
           <CustomNav />
           <Results/>
         </Route>
-
+    
 
 
         <Route path="*">
