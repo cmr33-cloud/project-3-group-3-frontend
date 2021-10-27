@@ -115,8 +115,8 @@ export default function Dashboard() {
             {gamesData &&
               gamesData.map((game) => (
                 <>
-                <h2 className='gamesLink' onClick={handleClick} id={game.name} >name: {game.name}</h2>
-                <h3>participants: {game.participants[0]}, { game.participants[1]}</h3>
+                <h2 className='gamesLink' onClick={handleClick} id={game.name} >Room Name: {game.name}</h2>
+                <h3>Participants: {game.participants[0]}, { game.participants[1]}</h3>
                 <hr/>
                 </>
               ))}

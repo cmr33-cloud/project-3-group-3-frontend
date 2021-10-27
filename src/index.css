@@ -22,6 +22,19 @@
     z-index: 20;
   }
 
+  .game-mode-options-classic{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-blue-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-knockout{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-red-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-quickfire{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-green-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+  .game-mode-options-custom{
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-yellow-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+  }
+
   .custom-nav {
     @apply p-2 top-0 left-0 bg-gray-300 z-10;
   }
