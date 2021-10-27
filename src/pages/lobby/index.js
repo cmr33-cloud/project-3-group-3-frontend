@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import moment from 'moment'
 import { Container, Button } from "react-bootstrap";
 import io from "socket.io-client";
 import Chat from "./Chat";
@@ -14,6 +14,7 @@ export default function Lobby() {
   const socket = useSelector((state) => state.socket);
   const room = useSelector((state) => state.room);
   const socketRef = useRef();
+  const [hostError, setHostError] = useState(false)
   const [currentRoom, setCurrentRoom] = useState(room);
   const [messages, setMessages] = useState([]);
   const [participants, setParticipants] = useState([])
@@ -22,8 +23,9 @@ export default function Lobby() {
     socket.emit("join-room", room);
     socket.on("display-messages", (payload) => {
       console.log("messages receieved");
-      console.log(payload.messages, payload.room);
+      console.log(payload.messages, payload.room, payload.participants);
       // setCurrentRoom(payload.room)
+      
       setMessages(payload.messages);
       setParticipants(payload.participants)
       console.log(messages);
@@ -44,9 +46,11 @@ export default function Lobby() {
     const message = e.target[0].value;
     const username = localStorage.getItem("username");
     socket.emit("send-message", {
+      timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
       username: username,
       room: room,
       message: message,
+      participants: participants
     });
   }
 
@@ -55,10 +59,11 @@ export default function Lobby() {
     //check if the host started the game
     if (username === room.split("-")[0]) {
       console.log('you are the host')
-      socket.emit('start-game', {questions: questions, room: room})
+      socket.emit('start-game', {questions: questions, room: room, participants: participants})
     }
     else {
       console.log('only the host can start the game')
+      setHostError(true)
       return
     }
     
@@ -89,7 +94,7 @@ export default function Lobby() {
           />
         </div>
         <div className="col options-box card" id="waiting-room">
-          <WaitingRoom roomId={room} />
+          <WaitingRoom roomId={room} participants={participants} hostError={hostError}/>
         </div>
       </div>
       <div className="row p-2 m-2">
