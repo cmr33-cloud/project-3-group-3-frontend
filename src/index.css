@@ -78,6 +78,10 @@
     margin-left: -50px;
   }
   
+  .host-error {
+    @apply text-yellow-600;
+  }
+
 }
 
 

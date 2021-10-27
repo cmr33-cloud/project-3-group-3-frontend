@@ -47,7 +47,8 @@ export default function WaitingRoom(props) {
                     <p key={`participant ${index}`}>{p}</p>
                 )
             })}
-            <h3>Your id: {socket.id}</h3>
+            <h3 >Your id: {socket.id}</h3>
+            {props.hostError ? <h4 className = 'host-error mt-5'>Only the host can start the game!</h4> : ""}
         </div>
     )
 }

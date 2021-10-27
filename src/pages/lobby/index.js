@@ -14,6 +14,7 @@ export default function Lobby() {
   const socket = useSelector((state) => state.socket);
   const room = useSelector((state) => state.room);
   const socketRef = useRef();
+  const [hostError, setHostError] = useState(false)
   const [currentRoom, setCurrentRoom] = useState(room);
   const [messages, setMessages] = useState([]);
   const [participants, setParticipants] = useState([])
@@ -62,6 +63,7 @@ export default function Lobby() {
     }
     else {
       console.log('only the host can start the game')
+      setHostError(true)
       return
     }
     
@@ -92,7 +94,7 @@ export default function Lobby() {
           />
         </div>
         <div className="col options-box card" id="waiting-room">
-          <WaitingRoom roomId={room} participants={participants}/>
+          <WaitingRoom roomId={room} participants={participants} hostError={hostError}/>
         </div>
       </div>
       <div className="row p-2 m-2">
