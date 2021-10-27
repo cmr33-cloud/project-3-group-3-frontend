@@ -1,17 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 import { io } from "socket.io-client";
 import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 
+
 export default function Dashboard() {
   const dispatch = useDispatch()
   const [redirect, setRedirect] = useState(false)
   const [userData, setUserData] = useState(null);
-
+  const [newGame, setNewGame] = useState(false)
   const [gamesData, setGamesData] = useState(null)
 
   // function renderStats(stats) {
@@ -32,6 +33,12 @@ export default function Dashboard() {
     newSocket.emit('join-room', e.target.id)
     dispatch(addSocket(newSocket))
     dispatch(addRoom(e.target.id))
+    setRedirect(true)
+  }
+
+  function handleNewGame(e) {
+    e.preventDefault();
+    setNewGame(true);
     setRedirect(true)
   }
 
@@ -105,29 +112,35 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="col">
-        <h1>game info here</h1>
+        <h1>Available games</h1>
         <Container className = 'card mt-5 game-info-container'>
         
         <div>
-            {gamesData &&
+            {gamesData && gamesData.length > 0 ?
               gamesData.map((game) => (
                 <>
                 <h2 className='gamesLink' onClick={handleClick} id={game.name} >name: {game.name}</h2>
-                <h3>participants: {game.participants[0]}, { game.participants[1]}</h3>
+                <h3>participants:</h3>
+                {game.participants.map(participant => (
+                  <h4> {participant}</h4>
+                ))}
                 <hr/>
                 </>
-              ))}
+              )) : <h2>There are currently no available games... make one instead?</h2>}
                 
               
           </div>
-        
+          
       </Container>
+      <div>
+            <Button className = 'mb-5' onClick = {handleNewGame}>Create game</Button>
+          </div>
         </div>
       </div>
 
 
       
-    </Container> : <Redirect to="/lobby"/>
+    </Container> : (newGame ? <Redirect to="/newgame"/> : <Redirect to="/lobby"/>)
 
   );
 }

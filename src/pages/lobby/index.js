@@ -16,6 +16,7 @@ export default function Lobby() {
   const socketRef = useRef();
   const [currentRoom, setCurrentRoom] = useState(room);
   const [messages, setMessages] = useState([]);
+  const [participants, setParticipants] = useState([])
   const [redirect, setRedirect] = useState(false);
   function init() {
     socket.emit("join-room", room);
@@ -24,6 +25,7 @@ export default function Lobby() {
       console.log(payload.messages, payload.room);
       // setCurrentRoom(payload.room)
       setMessages(payload.messages);
+      setParticipants(payload.participants)
       console.log(messages);
       socket.on("game-start", (questions) => {
         console.log("game starting");
