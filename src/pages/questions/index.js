@@ -16,6 +16,7 @@ const Questions = () => {
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
   // const [score, setScore] = useState(0)
+  //
   const dispatch = useDispatch()
   const updateScore = (score) => dispatch(addScore(score))
   const storeScore = useSelector((state) => state.score);
