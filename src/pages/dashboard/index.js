@@ -98,24 +98,24 @@ export default function Dashboard() {
     !redirect ? 
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
 
-      <div className="row">
-        <div className="col">
+      <div className="row mt-2">
+        <div className="col stats">
           <h1>{userData && userData.name}</h1>
           <h2>Stats</h2>
           <div>
             {userData &&
               Object.entries(userData.stats).map((item) => (
-                <h2>
+                <h3>
                   {item[0]}: {item[1]}
-                </h2>
+                </h3>
               ))}
           </div>
         </div>
         <div className="col">
-        <h1>Available games</h1>
+        <h1 className = 'available-games-title'>Available games</h1>
         <Container className = 'card mt-5 game-info-container'>
         
-        <div>
+        <div className = 'available-games-text'>
             {gamesData && gamesData.length > 0 ?
               gamesData.map((game) => (
                 <>

@@ -29,7 +29,7 @@
     @apply text-indigo-700 drop-shadow-lg;
   }
   .dashboard-container {
-    @apply rounded-md shadow-lg;
+    @apply rounded-md shadow-lg left-6;
   }
   .options-box {
     @apply w-auto align-middle justify-center p-2 m-2
@@ -82,6 +82,29 @@
     @apply text-yellow-600;
   }
 
+  .stats h1 {
+    @apply text-secondary;
+  }
+
+  .stats h2 {
+    @apply ml-10 text-left text-purple-500;
+  }
+
+  .stats h3 {
+    @apply ml-10 text-left text-xl;
+  }
+  .available-games-title {
+    @apply text-secondary;
+  }
+  .available-games-text h2 {
+    @apply text-purple-500
+  }
+  .available-games-text h3 {
+    @apply text-xl;
+  }
+  .available-games-text h4 {
+    @apply text-lg;
+  }
 }
 
 
