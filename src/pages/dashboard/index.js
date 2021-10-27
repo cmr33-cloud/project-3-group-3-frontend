@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-
+import "../../styles/dashboard.css"
 import { io } from "socket.io-client";
 import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -93,12 +93,12 @@ export default function Dashboard() {
 
       <div className="row">
         <div className="col">
-          <h1>{userData && userData.name}</h1>
-          <h2>Stats</h2>
+          <h1 className="dashboard-name border boder border-dark mt-3 mb-3 rounded">{userData && userData.name}</h1>
+          <h2 className="dashboard-stats">Stats</h2>
           <div>
             {userData &&
               Object.entries(userData.stats).map((item) => (
-                <h2>
+                <h2 className="dashboard-entries">
                   {item[0]}: {item[1]}
                 </h2>
               ))}

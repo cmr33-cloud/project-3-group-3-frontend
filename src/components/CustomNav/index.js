@@ -6,9 +6,9 @@ export default function CustomNav() {
             <Container>
                 <Navbar.Brand >
                     <Container className = 'd-flex flex-row align-items-center justify-content-center'>
-                    <h2 className = 'custom-nav-text'>Inquizitive</h2>
+                    <h2 className = 'custom-nav-text'>InQUIZitive</h2>
                     <br/>
-                    <p className = 'custom-nav-text'>catchy slogan</p>
+                    <p className = 'custom-nav-text'>let's get QUIZicle</p>
                     </Container>
                     </Navbar.Brand>
                 

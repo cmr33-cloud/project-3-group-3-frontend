@@ -76,9 +76,9 @@ const Login = () => {
     </Modal>
 
 
-    <div className="d-flex justify-content-center flex-col align-items-center">
-      <img className="demo-logo" src={logo} alt="Inquizitive Logo"></img>
-        <div className="container buttons">
+    <div className="d-flex justify-content-center flex-col align-items-center main-div">
+      <img className="logo" src={logo} alt="Inquizitive Logo"></img>
+        <div className="container buttons logo">
           <div className="row justify-content-center">
             <div className="col-7 col-md-5 col-xl-4 col-xl-3">
               <button id="login-button" onClick={() => {

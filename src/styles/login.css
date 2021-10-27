@@ -6,10 +6,6 @@
     --text-colour-dark: black;
     --bg-colour-submit: rgb(16, 130, 211);
 }
-body {
-    background-color: var(--bg-colour-light);
-    height: 100vh;
-}
 
 .app {
     position: absolute;
@@ -94,3 +90,12 @@ body {
 #register-to-login:hover {
     cursor: pointer;
 }
+
+.main-div{
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    
+}
+
+
