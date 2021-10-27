@@ -45,7 +45,7 @@ export default function Chat(props) {
                             type="text"
                             placeholder="say something..."
                         ></Form.Control>
-                        <Button type="submit">Submit</Button>
+                        <Button type="submit" className='visually-hidden'>Submit</Button>
                     </Form.Group>
                 </Form>
             </div>
