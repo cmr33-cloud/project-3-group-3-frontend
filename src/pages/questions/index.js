@@ -14,6 +14,7 @@ const Questions = () => {
   const [selected, setSelected] = useState([false,null])
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
+  const [score, setScore] = useState(0)
 
   const dispatch = useDispatch()
 
@@ -93,6 +94,16 @@ const Questions = () => {
     // setSelected(card)
     card.style.backgroundColor = "#00BFFF"
     setSelected([true,card])
+    // new from master from puja
+    if (selected[1]){
+      const answer = selected[1].innerText
+      console.log("selcted answer" + answer)
+      console.log("correct answer" + questions[questNo].correct_answer)
+      if (selected[1].innerText === questions[questNo].correct_answer) {
+          setScore((c) => c + 1);
+          console.log(score)
+      }
+    }
     
 // if(card.parentNode.parentNode.children[0].children[0]!==selected){card.parentNode.parentNode.children[0].children[0].style.backgroundColor = "white"}
 // if(card.parentNode.parentNode.children[0].children[1]!==selected){card.parentNode.parentNode.children[0].children[1].style.backgroundColor = "white"}
