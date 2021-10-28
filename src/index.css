@@ -129,22 +129,22 @@
     @apply text-5xl pb-6 pt-6 font-medium;
   }
   .select-difficulty {
-    @apply text-7xl;
+    @apply text-7xl text-shade-2;
   }
   .difficulty-custom {
     @apply border-double
   }
 
   .difficulty-easy {
-    @apply border-double border-green-500 border-4 text-green-500 hover:text-white hover:bg-green-500 hover:cursor-pointer;
+    @apply border-solid border-green-500 border-4 text-green-500 hover:text-white hover:bg-green-500 hover:cursor-pointer;
   }
 
   .difficulty-medium {
-    @apply border-double border-yellow-400 border-4  text-yellow-400 hover:text-white hover:bg-yellow-400 hover:cursor-pointer;
+    @apply border-solid border-yellow-400 border-4  text-yellow-400 hover:text-white hover:bg-yellow-400 hover:cursor-pointer;
   }
 
   .difficulty-hard {
-    @apply border-double border-red-600 border-4 text-red-600 hover:text-white hover:bg-red-600 hover:cursor-pointer;
+    @apply border-solid border-red-600 border-4 text-red-600 hover:text-white hover:bg-red-600 hover:cursor-pointer;
   }
 
   .difficulty-custom {
@@ -191,6 +191,9 @@
   }
   .custom-button {
     @apply hover:text-white hover:bg-shade-4
+  }
+  .custom-button-1 {
+    @apply hover:text-white hover:bg-shade-4 
   }
   
 }

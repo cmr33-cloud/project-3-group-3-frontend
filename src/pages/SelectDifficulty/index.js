@@ -55,7 +55,7 @@ export default function SelectDifficulty() {
 
   return (
     !redirect ? 
-    <div className="d-flex align-items-center mt-5">
+    <div className="d-flex align-items-center pt-5 game-mode-page">
       <Container>
         {/* <Container className= 'customBox border border-dark'>
                     <Row>
@@ -85,7 +85,7 @@ export default function SelectDifficulty() {
             
             </div>
             <div className="row justify-content-center mb-4 difficulty-custom">
-            <div className = 'col-3 difficulty-box card border-4 border-primary' id='custom' onClick={handleClick}>Custom</div>
+            <div className = 'col-3 difficulty-box card border-4 border-primary custom custom-button-1' id='custom' onClick={handleClick}>Custom</div>
                   
             </div>
             
