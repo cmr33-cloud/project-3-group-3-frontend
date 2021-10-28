@@ -32,7 +32,7 @@ export default function SelectCategory() {
 
   return (
     !redirect ? 
-    <div className="d-flex align-items-center mt-5">
+    <div className="d-flex align-items-center pt-5 game-mode-page">
       <Container>
         {/* <Container className= 'customBox border border-dark'>
                     <Row>
@@ -47,8 +47,8 @@ export default function SelectCategory() {
                 </Container> */}
         <div className="row p-2 m-2">
             
-          <div className="col options-box-categories card">
-          <h1 className="select-category ">Select Category</h1>
+          <div className="col options-box-categories card border-4 border-primary">
+          <h1 className="select-category">Select Category</h1>
             <div className="row justify-content-center">
               <div className="col-4 category-box card border-white text-search" id='9' onClick={handleClick}>
                 <div><FontAwesomeIcon icon={faSearch} size="4x"/></div> 
@@ -57,7 +57,7 @@ export default function SelectCategory() {
                 <div><FontAwesomeIcon icon={faFlask} size="4x"/></div>
                 Science</div>
             </div>
-            <div className="row justify-content-center">
+            <div className="row justify-content-center  mt-4">
               <div className="col-4 category-box card border-white text-computers" id='18' onClick={handleClick}>
                 <div><FontAwesomeIcon icon={faLaptop} size="4x" /></div>
                 Computers</div>
@@ -65,7 +65,7 @@ export default function SelectCategory() {
                 <div><FontAwesomeIcon icon={faDumbbell} size="4x"/></div>
               Sports</div>
             </div>
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mt-4">
               <div className="col-4 category-box card border-white text-animals" id='27' onClick={handleClick}>
                 <div><FontAwesomeIcon className="fa-lg" icon={faPaw} size="4x"/></div>
                 Animals</div>
@@ -73,7 +73,7 @@ export default function SelectCategory() {
                 <div><FontAwesomeIcon icon={faAtlas} size="4x"/></div>
                 Geography</div>
             </div>
-            <div className="row justify-content-center">
+            <div className="row justify-content-center mt-4">
             <div className = 'col-4 category-box card border-white text-history' id='23' onClick={handleClick}>
               <div><FontAwesomeIcon icon={faHistory} size="4x"/></div>
             History</div>
@@ -81,8 +81,8 @@ export default function SelectCategory() {
                     <div><FontAwesomeIcon icon={faLandmark} size="4x"/></div>
                     Politics</div>
             </div>
-            <div className="row justify-content-center">
-            <div className = 'col-3 category-box card border-3 mt-4 custom-button border-primary'>Custom</div>
+            <div className="row justify-content-center mt-4">
+            <div className = 'col-3 category-box card border-3 mt-4 custom-button border-primary rounded-3 custom-button'>Custom</div>
                   
             </div>
           </div>

@@ -61,7 +61,7 @@
     height: auto;
   }
   .category-box {
-    @apply w-auto align-middle justify-center p-2 m-2 
+    @apply w-auto align-middle justify-center p-2 m-2 font-medium;
     hover:cursor-pointer;
   }
   .messages-box {
@@ -152,32 +152,32 @@
   }
 
   .select-category {
-    @apply text-7xl mb-14 text-blue-500;
+    @apply text-7xl mb-14 text-shade-2 pt-8;
   }
   
   .text-search {
-    @apply hover:text-red-500 text-blue-500 font-medium text-xl;
+    @apply hover:text-red-500 text-shade-4 font-medium text-xl;
   }
   .text-science {
-    @apply hover:text-green-500 text-blue-500 font-medium text-xl;
+    @apply hover:text-green-500 text-shade-4 font-medium text-xl;
   }
   .text-computers {
-    @apply hover:text-purple-500 text-blue-500 font-medium text-xl;
+    @apply hover:text-purple-500 text-shade-4 font-medium text-xl;
   }
   .text-sports {
-    @apply hover:text-yellow-500 text-blue-500 font-medium text-xl; 
+    @apply hover:text-yellow-500 text-shade-4 font-medium text-xl; 
   }
   .text-animals {
-    @apply hover:text-yellow-600 text-blue-500 font-medium text-xl;
+    @apply hover:text-yellow-600 text-shade-4 font-medium text-xl;
   }
   .text-geography {
-    @apply hover:text-gray-500 text-blue-500 font-medium text-xl;
+    @apply hover:text-gray-500 text-shade-4 font-medium text-xl;
   }
   .text-history {
-    @apply hover:text-pink-500 text-blue-500 font-medium text-xl;
+    @apply hover:text-pink-500 text-shade-4 font-medium text-xl;
   }
   .text-politics {
-    @apply hover:text-yellow-900 text-blue-500 font-medium text-xl;
+    @apply hover:text-yellow-900 text-shade-4 font-medium text-xl;
   }
   .custom-button {
     @apply text-blue-600 hover:cursor-pointer text-xl font-medium;
@@ -187,9 +187,12 @@
   }
   .game-mode-page {
     @apply bg-shade-6;
-    background-size: cover;
-    
+    background-size: cover; 
   }
+  .custom-button {
+    @apply hover:text-white hover:bg-shade-4
+  }
+  
 }
 
 
