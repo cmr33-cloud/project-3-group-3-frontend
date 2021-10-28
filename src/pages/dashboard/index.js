@@ -1,18 +1,20 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 import { io } from "socket.io-client";
 import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
+import { FaCrown, FaGamepad, FaHome } from "react-icons/fa";
+import LevelCircle from "../../components/LevelCircle";
 
 export default function Dashboard() {
-  const dispatch = useDispatch()
-  const [redirect, setRedirect] = useState(false)
+  const dispatch = useDispatch();
+  const [redirect, setRedirect] = useState(false);
   const [userData, setUserData] = useState(null);
-
-  const [gamesData, setGamesData] = useState(null)
+  const [newGame, setNewGame] = useState(false);
+  const [gamesData, setGamesData] = useState(null);
 
   // function renderStats(stats) {
   //     Object.entries(stats).forEach(item => {
@@ -23,16 +25,22 @@ export default function Dashboard() {
   //       })
   // }
 
-  
   function handleClick(e) {
     e.preventDefault();
     const newSocket = io("https://quiz-app-project-3.herokuapp.com/", {
-      withCredentials: true})
-    newSocket.connect()
-    newSocket.emit('join-room', e.target.id)
-    dispatch(addSocket(newSocket))
-    dispatch(addRoom(e.target.id))
-    setRedirect(true)
+      withCredentials: true,
+    });
+    newSocket.connect();
+    newSocket.emit("join-room", e.target.id);
+    dispatch(addSocket(newSocket));
+    dispatch(addRoom(e.target.id));
+    setRedirect(true);
+  }
+
+  function handleNewGame(e) {
+    e.preventDefault();
+    setNewGame(true);
+    setRedirect(true);
   }
 
   useEffect(() => {
@@ -53,8 +61,9 @@ export default function Dashboard() {
         options
       );
       const data = await result.json();
-      console.log(data)
-      localStorage.setItem('username',data.name)
+      console.log(data);
+      localStorage.setItem("username", data.name);
+      localStorage.setItem('userId',data._id)
       if (isMounted) {
         setUserData(data);
       }
@@ -71,63 +80,138 @@ export default function Dashboard() {
         options
       );
       const gamesData = await result.json();
-      
-      console.log(gamesData)
+
+      console.log(gamesData);
       if (isMounted) {
         setGamesData(gamesData);
       }
     }
     fetchData();
     fetchGamesData();
-    
 
     return () => {
       isMounted = false;
     };
   }, []);
+  const SideBarIcon = ({ icon, text = "tooltip" }) => (
+    <div className="sidebar-icon group z-20 mt-2 mb-2">
+      {icon}
 
-  return (
-
-    !redirect ? 
+      <span class="sidebar-tooltip group-hover:scale-100 ">{text}</span>
+    </div>
+  );
+  return !redirect ? (
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
-
-      <div className="row">
-        <div className="col">
-          <h1>{userData && userData.name}</h1>
-          <h2>Stats</h2>
-          <div>
+      <div className="row mt-2">
+        <div className="col stats">
+          <h1>{userData && `Hello ${userData.name}, welcome to Inquizitve!`}</h1>
+          <h2>your stats</h2>
+          <div className="stats-icons-group">
+          <div className = 'col stats-text level-col'>
+                        {userData && (<LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>)}
+                        
+                    
+                    </div>
             {userData &&
-              Object.entries(userData.stats).map((item) => (
-                <h2>
-                  {item[0]}: {item[1]}
-                </h2>
+              Object.entries(userData.stats).map((item, index) => (
+               
+
+                <div className="stats-icons row">
+                  { index === 0 ? (
+                    <>
+                    <div className = 'col'>
+                    <SideBarIcon text="xp" icon={"xp"} />
+                    </div>
+                    <div className = 'col stats-text'>
+                    {item[1]} / {userData.stats.level * 100}
+                    </div>
+                    </>
+                    
+                    ) : index === 1 ? (
+                      ""
+                  ) : index === 2 ? (
+                    <>
+                    <div className = 'col'>
+                    <SideBarIcon text="games played"
+                    icon={<FaGamepad size="28" data-testid="games-icon" />}
+                    />
+                    </div>
+                    <div className = 'col stats-text'>
+                    {item[1]}
+                    </div>
+                    </>
+                    
+                    
+                  ) : (
+                    <>
+                      <div className = 'col'>
+                    <SideBarIcon
+                      text="wins"
+                      icon={<FaCrown size="28" data-testid="crown-icon" />}
+                      />
+                      </div>
+                    <div className = 'col stats-text'>
+                      {item[1 ]}
+                      </div>
+                    
+                    </>
+                  )}
+                </div>
+                  
               ))}
+                    
+                      
           </div>
         </div>
         <div className="col">
-        <h1>game info here</h1>
-        <Container className = 'card mt-5 game-info-container'>
-        
-        <div>
-            {gamesData &&
-              gamesData.map((game) => (
-                <>
-                <h2 className='gamesLink' onClick={handleClick} id={game.name} >name: {game.name}</h2>
-                <h3>participants: {game.participants[0]}, { game.participants[1]}</h3>
-                <hr/>
-                </>
-              ))}
-                
-              
+          <h1 className="available-games-title">Available games</h1>
+          <h3>click to join!</h3>
+          <Container className="card mt-4 game-info-container">
+            <div className="available-games-text">
+              {gamesData && gamesData.length > 0 ? (
+                gamesData.map((game) => (
+                  <>
+                    <h2
+                      className="gamesLink"
+                      onClick={handleClick}
+                      id={game.name}
+                    >
+                      name: {game.name}
+                    </h2>
+                    <h3>participants:</h3>
+                    {game.participants.map((participant) => (
+                      <h4> {participant}</h4>
+                    ))}
+                    <hr />
+                  </>
+                ))
+              ) : (
+                <h2>
+                  There are currently no available games... make one instead?
+                </h2>
+              )}
+            </div>
+          </Container>
+          <div>
+            <button className="mb-5 form-button" onClick={handleNewGame}>
+              Create game
+            </button>
           </div>
-        
-      </Container>
         </div>
       </div>
-
-
-      
-    </Container> : <Redirect to="/lobby"/>
-
+    </Container>
+  ) : newGame ? (
+    <Redirect to="/newgame" />
+  ) : (
+    <Redirect to="/lobby" />
   );
 }
+{/* <>
+                    <div className = 'col level-col'>
+                    <SideBarIcon text="level" icon={"level"} />
+                    </div>
+                      <div className = 'col stats-text level-col'>
+                        <LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>
+                    
+                    </div>
+                    </> */}

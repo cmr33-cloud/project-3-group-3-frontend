@@ -1,4 +1,4 @@
-const loadQuestions = (questionsData) => ({
+export const loadQuestions = (questionsData) => ({
     type: 'LOAD_QUESTIONS',
     payload: questionsData
 });
@@ -33,6 +33,14 @@ export const addRoom = (payload) => ({
 })
 export const addScore = (payload) => ({
   type: 'ADD_SCORE',
+  payload
+})
+export const addSelected = (payload) => ({
+  type: 'ADD_SELECTED',
+  payload
+})
+export const addGameId = (payload) => ({
+  type: 'ADD_GAMEID',
   payload
 })
 

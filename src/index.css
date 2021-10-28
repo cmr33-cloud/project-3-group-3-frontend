@@ -10,9 +10,25 @@
     rounded-3xl hover:rounded-xl
     transition-all duration-300 ease-linear;
     
-
-
   }
+
+  .results-icons .sidebar-icon {
+    @apply hover:bg-gray-300 hover:scale-110;
+  }
+
+  .form-button {
+    @apply border-none bg-secondary text-white p-2 m-2
+     shadow-xl hover:text-secondary hover:bg-gray-400
+    rounded-xl hover:rounded-md
+    transition-all duration-300 ease-linear;
+  }
+    h1 {
+      @apply text-secondary drop-shadow-lg;
+    }
+    h2, h3 {
+      @apply text-purple-500 drop-shadow-md;
+    }
+  
   .sidebar-tooltip {
     @apply absolute w-auto p-2 m-2 min-w-max left-14
     rounded-md shadow-md
@@ -29,10 +45,10 @@
     @apply text-indigo-700 drop-shadow-lg;
   }
   .dashboard-container {
-    @apply rounded-md shadow-lg;
+    @apply rounded-md shadow-lg left-6;
   }
   .options-box {
-    @apply w-auto align-middle justify-center p-2 m-2
+    @apply flex flex-col align-top w-auto justify-center p-2 m-2
     hover:cursor-pointer;
     height: 400px;
     
@@ -46,24 +62,116 @@
     hover:cursor-pointer;
   }
   .messages-box {
-    @apply flex flex-col w-auto justify-items-start p-2 m-2 border-2 border-secondary;
+    @apply flex flex-col rounded-md w-auto justify-items-start p-2 m-2 border-2 border-secondary shadow-lg;
     overflow: auto;
     height: 250px;
   }
   .game-info-container {
     @apply flex flex-col w-auto p-2 m-2;
     overflow: auto;
-    height: 250px;
+    height: 20rem;
   }
   .gamesLink {
     @apply hover:cursor-pointer;
   }
+  .sent-title  {
+    @apply text-purple-500;
+  }
+
+  .sent-timestamp {
+    @apply text-gray-500 text-xs;
+  }
+
   .sent-self {
     text-align: left;
   }
   .sent-other {
     text-align: right;
   }
+
+  .bad-login {
+    text-align: left;
+    margin-left: -50px;
+  }
+  
+  .host-error {
+    @apply text-yellow-600;
+  }
+
+  .stats h1 {
+    @apply text-secondary;
+  }
+
+  .stats h2 {
+    @apply  text-center text-purple-500;
+  }
+
+  .stats h3 {
+    @apply ml-10 text-xl text-black;
+  }
+  .available-games-title {
+    @apply text-secondary;
+  }
+  .available-games-text h2 {
+    @apply text-purple-500
+  }
+  .available-games-text h3 {
+    @apply text-xl;
+  }
+  .available-games-text h4 {
+    @apply text-lg;
+  }
+  .stats-icons-group {
+    @apply border-2 align-middle;
+  }
+
+  .stats-icons-group .sidebar-icon {
+    @apply rounded-sm shadow-2xl text-purple-500
+    hover:text-white;
+  }
+
+  .stats-text {
+    @apply self-center text-xl;
+  }
+
+  .results-icons {
+    @apply flex flex-row align-middle;
+  }
+
+  #gold {
+    @apply text-yellow-500 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
+  }
+  #silver {
+    @apply text-gray-500 
+  }
+  #bronze {
+    @apply text-yellow-700 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
+  }
+
+  .level-icon {
+    @apply absolute left-5 ml-5;
+  }
+  .level-holder {
+    @apply left-5 flex-col justify-center align-middle scale-50;
+  }
+
+  .level-svg {
+    height: 100%;
+    width: 100%;
+  }
+  .level-col {
+    transform: scale(0.6);
+    margin-top: -8rem;
+    margin-bottom: -8rem;
+  }
+  .level-circle {
+    transform: scale(0.5);
+  }
+  .leaderboard-card {
+    height: 30rem;
+    overflow: auto;
+  }
+  
   
 }
 
