@@ -35,16 +35,16 @@
   }
 
   .game-mode-options-classic{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold; 
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer; 
   } 
   .game-mode-options-knockout{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
   }
   .game-mode-options-quickfire{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
   }
   .game-mode-options-custom{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
   }
 
   .dashboard-container {
@@ -156,28 +156,28 @@
   }
   
   .text-search {
-    @apply hover:text-red-500 text-shade-4 font-medium text-xl;
+    @apply hover:text-red-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-science {
-    @apply hover:text-green-500 text-shade-4 font-medium text-xl;
+    @apply hover:text-green-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-computers {
-    @apply hover:text-purple-500 text-shade-4 font-medium text-xl;
+    @apply hover:text-purple-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-sports {
-    @apply hover:text-yellow-500 text-shade-4 font-medium text-xl; 
+    @apply hover:text-yellow-500 text-shade-4 font-medium text-xl hover:cursor-pointer; 
   }
   .text-animals {
-    @apply hover:text-yellow-600 text-shade-4 font-medium text-xl;
+    @apply hover:text-yellow-600 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-geography {
-    @apply hover:text-gray-500 text-shade-4 font-medium text-xl;
+    @apply hover:text-gray-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-history {
-    @apply hover:text-pink-500 text-shade-4 font-medium text-xl;
+    @apply hover:text-pink-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .text-politics {
-    @apply hover:text-yellow-900 text-shade-4 font-medium text-xl;
+    @apply hover:text-yellow-900 text-shade-4 font-medium text-xl hover:cursor-pointer;
   }
   .custom-button {
     @apply text-blue-600 hover:cursor-pointer text-xl font-medium;
