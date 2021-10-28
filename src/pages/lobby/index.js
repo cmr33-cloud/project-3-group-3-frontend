@@ -82,8 +82,8 @@ export default function Lobby() {
   }
 
   return !redirect ? (
-    <Container>
-      <h1>welcome to the lobby</h1>
+    <Container className="game-mode-page">
+      <h1>Welcome to the Lobby</h1>
       {/* <Container className= 'customBox border border-dark'>
                     <Row>
                         <Col className="box border border-dark">1</Col>

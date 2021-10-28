@@ -17,7 +17,7 @@ export default function Chat(props) {
 
         return (
             <div>
-                <h2>Chat</h2>
+                <h2 className="chat-title">Chat</h2>
                 <div className="messages-box">
                     {props.messages &&
                         props.messages.map((obj, index) => {
@@ -39,7 +39,7 @@ export default function Chat(props) {
                 </div>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
-                        <Form.Label>write a message</Form.Label>
+                        <Form.Label>Write a Message</Form.Label>
                         <Form.Control className='custom-form'
                             type="text"
                             placeholder="say something..."
