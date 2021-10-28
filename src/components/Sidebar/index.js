@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaHome, FaMailBulk, FaPlus, FaQuestion, FaSignOutAlt, FaFlask} from 'react-icons/fa'
+import { FaHome, FaMailBulk, FaPlus, FaQuestion, FaSignOutAlt, FaFlask, FaMedal} from 'react-icons/fa'
 const Sidebar = () => {
 
 
@@ -12,6 +12,7 @@ const Sidebar = () => {
             
             <SideBarIcon text='home'  href='./dashboard'icon={<FaHome size='28' data-testid ="home-icon"/>}/>
             <SideBarIcon text='create new game'  href='./newgame'icon={<FaPlus size='28' data-testid ="create-icon"/>}/>
+            <SideBarIcon text='leaderboard '  href='./leaderboard'icon={<FaMedal size='28' data-testid ="leaderboard-icon"/>}/>
             <SideBarIcon text='about' href='./about' icon={<FaQuestion size ='28' data-testid="about-icon"/>}/>
             <SideBarIcon text='contact' href = './contact' icon={<FaMailBulk size ='28' data-testid="contact-icon"/>}/>
             <SideBarIcon text='log out' href = './logout' icon={<FaSignOutAlt size ='28' data-testid="logout-icon"/>}/>

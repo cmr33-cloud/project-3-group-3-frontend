@@ -40,7 +40,7 @@ export default function SelectDifficulty() {
     console.log('clicked')
     dispatch(addDifficulty(e.target.id ))
     const difficulty = e.target.id
-    const amount = 2;
+    const amount = 3;
     const type = 'multiple'
     const searchTerm = {
       amount,
