@@ -21,9 +21,9 @@ export default function CreateRoom() {
 
   return (
    
-      !redirect ? <div className="d-flex align-items-center mt-5">
+      !redirect ? <div className="d-flex align-items-center pt-5 game-mode-page">
       <Container>
-          <h1>select game mode</h1>
+          <h1 className="game-mode">Select Game Mode</h1>
         {/* <Container className= 'customBox border border-dark'>
                     <Row>
                         <Col className="box border border-dark">1</Col>
@@ -35,13 +35,13 @@ export default function CreateRoom() {
                     </Row>
 
                 </Container> */}
-        <div className="row p-2 m-2">
-          <div className="col options-box card" onClick={handleClick} id='classic'>classic</div>
-          <div className= "col options-box card" onClick={handleClick} id='knockout'>knockout</div>
+      <div className="row p-2 m-2">
+          <div className="col options-box card game-mode-options-classic border-4 border-primary" onClick={handleClick} id='classic'>Classic</div>
+          <div className= "col options-box card game-mode-options-knockout border-4 border-primary" onClick={handleClick} id='knockout'>Knockout</div>
         </div>
         <div className="row p-2 m-2">
-          <div className="col options-box card" onClick={handleClick} id='quickfire'>quickfire</div>
-          <div className="col options-box card" onClick={handleClick} id='custom'>custom</div>
+          <div className="col options-box card game-mode-options-quickfire border-4 border-primary " onClick={handleClick} id='quickfire'>Quickfire</div>
+          <div className="col options-box card game-mode-options-custom border-4 border-primary" onClick={handleClick} id='custom'>Custom</div>
         </div>
       </Container>
     </div> : <Redirect to='/selectCategory'/>

@@ -55,7 +55,7 @@ export default function SelectDifficulty() {
 
   return (
     !redirect ? 
-    <div className="d-flex align-items-center mt-5">
+    <div className="d-flex align-items-center pt-5 game-mode-page">
       <Container>
         {/* <Container className= 'customBox border border-dark'>
                     <Row>
@@ -70,22 +70,22 @@ export default function SelectDifficulty() {
                 </Container> */}
         <div className="row p-2 m-2">
             
-          <div className="col options-box-categories card">
-          <h1>select category</h1>
-            <div className="row">
-              <div className="col difficulty-box card" id='easy' onClick={handleClick}>easy</div>
+          <div className="col options-box-categories">
+          <h1 className="mb-5 mt-0 select-difficulty">Select Difficulty</h1>
+            <div className="row justify-content-center mt-3 mb-4 difficulty-easy">
+              <div className="col difficulty-box card difficulty-easy" id='easy' onClick={handleClick}>Easy</div>
               
             </div>
-            <div className="row">
-              <div className="col difficulty-box card" id='medium' onClick={handleClick}>medium</div>
+            <div className="row justify-content-center difficulty-medium mb-4">
+              <div className="col difficulty-box card difficulty-medium" id='medium' onClick={handleClick}>Medium</div>
               
             </div>
-            <div className="row">
-              <div className="col difficulty-box card" id='hard' onClick={handleClick}>hard</div>
+            <div className="row justify-content-center mb-4 difficulty-hard">
+              <div className="col difficulty-box card difficulty-hard" id='hard' onClick={handleClick}>Hard</div>
             
             </div>
-            <div className="row">
-            <div className = 'col difficulty-box card ' id='custom' onClick={handleClick}>custom</div>
+            <div className="row justify-content-center mb-4 difficulty-custom">
+            <div className = 'col-3 difficulty-box card border-4 border-primary custom custom-button-1' id='custom' onClick={handleClick}>Custom</div>
                   
             </div>
             
