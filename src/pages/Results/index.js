@@ -65,6 +65,7 @@ export default function Results() {
                       <div className="col results-icons">
                         
                         <div className = 'flex flex-row self-center align-items-center p-2'>
+                        <h3>{participant.username}</h3>
                           {index === 0 ? (
                             <SideBarIcon
                               text="winner"
@@ -102,7 +103,7 @@ export default function Results() {
                           ):
                             ""
                           }
-                          <h3>{participant.username}</h3>
+                          
                         </div>
                       </div>
                       <div className="col">

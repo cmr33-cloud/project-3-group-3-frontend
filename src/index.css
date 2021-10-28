@@ -167,6 +167,10 @@
   .level-circle {
     transform: scale(0.5);
   }
+  .leaderboard-card {
+    height: 30rem;
+    overflow: auto;
+  }
   
   
 }

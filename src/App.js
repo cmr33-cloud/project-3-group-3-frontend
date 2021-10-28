@@ -18,6 +18,7 @@ import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
 import Questions from "./pages/Questions";
 import Results from "./pages/Results";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
+        {/* temp route */}
         <Route path="/testing">
           <Sidebar />
           <CustomNav />
@@ -79,6 +81,11 @@ function App() {
         <Sidebar />
           <CustomNav />
           <Results/>
+        </Route>
+        <Route path="/leaderboard">
+        <Sidebar />
+          <CustomNav />
+          <Leaderboard/>
         </Route>
     
 
