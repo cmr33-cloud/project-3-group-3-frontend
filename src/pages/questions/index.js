@@ -229,6 +229,7 @@ const Questions = () => {
     borderRadius: "25px",
   };
   const textStyle = { float: "center", margin: "auto" };
+  const answerStyle = {borderRadius: "25px"}
 
   return !redirect ? (
     <div className="card mt-5">
@@ -253,20 +254,20 @@ const Questions = () => {
         onClick={(e) => createScore(e)}
       >
         <Container>
-          <Container className="customBox border border-dark">
+          <Container className="customBox border">
             <Row>
-              <Col className="box border border-dark" id="0">
+              <Col className="box border border-dark" id="0" style = {answerStyle}>
                 {answers[0]}
               </Col>
-              <Col className="box border border-dark" id="1">
+              <Col className="box border border-dark" id="1" style = {answerStyle}>
                 {answers[1]}
               </Col>
             </Row>
             <Row>
-              <Col className="box border border-dark" id="2">
+              <Col className="box border border-dark" id="2" style = {answerStyle}>
                 {answers[2]}
               </Col>
-              <Col className="box border border-dark" id="3">
+              <Col className="box border border-dark" id="3" style = {answerStyle}>
                 {answers[3]}
               </Col>
             </Row>
