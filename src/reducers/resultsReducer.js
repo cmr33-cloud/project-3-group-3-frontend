@@ -1,5 +1,7 @@
 const initialState = {
-    questions: []
+    answer: "",
+    score: 0,
+    questions: [],
     // questions: [
     //     {category: "General Knowledge",
     //     correct_answer: "Green",
@@ -42,7 +44,10 @@ const resultsReducer = (state = initialState, { type, payload }) => {
         return {...state, room: payload}
 
     case 'ADD_SCORE':
-        return {...state, score: state.score + 1}
+        return {...state, score: payload}
+
+    case 'CHANGE_ANSWER':
+        return {...state, answer: payload}
 
     default:
         return state

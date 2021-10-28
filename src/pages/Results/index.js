@@ -1,9 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 export default function Results() {
+    const storeScore = useSelector(state => state.score)
     return (
         <div>
-            results here
+          Your score:  {storeScore}
         </div>
     )
 }

@@ -2,32 +2,36 @@ import React from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { getQuestions } from "../../actions";
 import { useDispatch } from "react-redux";
-import { Redirect,useHistory } from "react-router";
-
+import { Redirect, useHistory } from "react-router";
 
 export default function Testing() {
-const history = useHistory();
-const dispatch = useDispatch();
-const search = (searchTerm) => dispatch(getQuestions(searchTerm))
-//const allQuestions = (searchTerm) => dispatch(fetchQuestions(searchTerm))
-console.log(search)
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const search = (searchTerm) => dispatch(getQuestions(searchTerm));
+  //const allQuestions = (searchTerm) => dispatch(fetchQuestions(searchTerm))
+  console.log(search);
   function handleSubmit(e) {
     e.preventDefault();
+    // const searchTerm = {
+    //   amount: e.target[0].value,
+    //   category: e.target[1].value,
+    //   difficulty: e.target[2].value,
+    //   type: e.target[3].value,
+    // };
     const searchTerm = {
-      amount: e.target[0].value,
-      category: e.target[1].value,
-      difficulty: e.target[2].value,
-      type: e.target[3].value,
+      amount: 10,
+      category: 9,
+      difficulty: "easy",
+      type: "multiple"
     };
-    search(searchTerm)
-   // Questions(searchTerm)
-
+    search(searchTerm);
+    // Questions(searchTerm)
   }
 
   // function handleClick(){
   //   // window.location.href = 'http://localhost:3000/questions'
   //    <Redirect from='/testing' to='/questions'/>
-  
+
   // }
 
   return (
@@ -54,16 +58,17 @@ console.log(search)
             type="text"
             placeholder="multiple/boolean"
           ></Form.Control>
-          <Button type="submit" >Submit</Button>
-          
+          <Button type="submit">Submit</Button>
+
           {/* searchQ={search} */}
         </Form.Group>
       </Form>
-      <br/>
+      <br />
 
-      <Button type="button" onClick={()=>history.push('./questions')}>Start Quiz</Button>
+      <Button type="button" onClick={() => history.push("./questions")}>
+        Start Quiz
+      </Button>
       {/* <Redirect from='/testing' to='/questions'/> */}
     </div>
   );
 }
-
