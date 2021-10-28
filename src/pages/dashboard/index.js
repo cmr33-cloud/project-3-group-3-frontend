@@ -7,6 +7,7 @@ import { addRoom, addSocket } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import { FaCrown, FaGamepad, FaHome } from "react-icons/fa";
+import LevelCircle from "../../components/LevelCircle";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -117,7 +118,7 @@ export default function Dashboard() {
                     <SideBarIcon text="xp" icon={"xp"} />
                     </div>
                     <div className = 'col stats-text'>
-                    {item[1]}
+                    {item[1]} / {userData.stats.level * 100}
                     </div>
                     </>
                     
@@ -127,7 +128,8 @@ export default function Dashboard() {
                     <SideBarIcon text="level" icon={"level"} />
                     </div>
                       <div className = 'col stats-text'>
-                    {item[1]}
+                        <LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>
+                    
                     </div>
                     </>
                   ) : index === 2 ? (

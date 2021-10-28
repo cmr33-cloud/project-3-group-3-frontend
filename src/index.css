@@ -147,6 +147,14 @@
   #bronze {
     @apply text-yellow-700 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
   }
+
+  .level-icon {
+    @apply absolute left-5 ml-5;
+  }
+  .level-holder {
+    @apply left-5 flex-col justify-center align-middle;
+  }
+  
   
   
 }
