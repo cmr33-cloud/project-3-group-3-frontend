@@ -27,7 +27,7 @@ export default function LevelCircle(props) {
           fill="none"
           stroke="#00CC33"
           stroke-width="15"
-          stroke-dasharray={`${props.xp},20000`}
+          stroke-dasharray={`${props.xp*360/(props.level*100)},2000`}
           transform="rotate(-90,100,100)"
         />
         
