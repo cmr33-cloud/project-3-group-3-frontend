@@ -4,15 +4,15 @@ export default function LevelCircle(props) {
   return (
     <div className = 'level-holder flex'>
       <svg 
-        
-        viewBox="0 0 300 300"
+        className = 'level-svg'
+        viewBox="0 0 150 150"
         preserveAspectRatio="none"
-       
+        
       >
           <circle className='level-icon'
         
-        cx="100"
-        cy="100"
+        cx="90%"
+        cy="50%"
         r="57"
         fill="none"
         stroke="#cccccc"
@@ -21,8 +21,8 @@ export default function LevelCircle(props) {
       />
         <circle className='level-icon'
         
-          cx="100"
-          cy="100"
+          cx="90%"
+          cy="50%"
           r="57"
           fill="none"
           stroke="rgba(139,92,246,1)"
@@ -31,7 +31,7 @@ export default function LevelCircle(props) {
           transform="rotate(-90,100,100)"
         />
         
-        <text text-anchor="middle" x="100" y="110" style={{fontSize: '2rem'}}>{props.level}</text>
+        <text text-anchor="middle" x="50%" y="50%" style={{fontSize: '2rem'}}>{props.level}</text>
       </svg>
     </div>
   );

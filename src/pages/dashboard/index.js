@@ -107,6 +107,11 @@ export default function Dashboard() {
           <h1>{userData && `Hello ${userData.name}, welcome to Inquizitve!`}</h1>
           <h2>your stats</h2>
           <div className="stats-icons-group">
+          <div className = 'col stats-text level-col'>
+                        {userData && (<LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>)}
+                        
+                    
+                    </div>
             {userData &&
               Object.entries(userData.stats).map((item, index) => (
                
@@ -123,15 +128,7 @@ export default function Dashboard() {
                     </>
                     
                     ) : index === 1 ? (
-                      <>
-                    <div className = 'col'>
-                    <SideBarIcon text="level" icon={"level"} />
-                    </div>
-                      <div className = 'col stats-text'>
-                        <LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>
-                    
-                    </div>
-                    </>
+                      ""
                   ) : index === 2 ? (
                     <>
                     <div className = 'col'>
@@ -162,6 +159,8 @@ export default function Dashboard() {
                 </div>
                   
               ))}
+                    
+                      
           </div>
         </div>
         <div className="col">
@@ -207,3 +206,12 @@ export default function Dashboard() {
     <Redirect to="/lobby" />
   );
 }
+{/* <>
+                    <div className = 'col level-col'>
+                    <SideBarIcon text="level" icon={"level"} />
+                    </div>
+                      <div className = 'col stats-text level-col'>
+                        <LevelCircle xp={userData.stats.xp} level={userData.stats.level}/>
+                    
+                    </div>
+                    </> */}

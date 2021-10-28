@@ -69,7 +69,7 @@
   .game-info-container {
     @apply flex flex-col w-auto p-2 m-2;
     overflow: auto;
-    height: 250px;
+    height: 20rem;
   }
   .gamesLink {
     @apply hover:cursor-pointer;
@@ -103,7 +103,7 @@
   }
 
   .stats h2 {
-    @apply ml-10 text-left text-purple-500;
+    @apply  text-center text-purple-500;
   }
 
   .stats h3 {
@@ -152,9 +152,21 @@
     @apply absolute left-5 ml-5;
   }
   .level-holder {
-    @apply left-5 flex-col justify-center align-middle ml-12;
+    @apply left-5 flex-col justify-center align-middle scale-50;
   }
-  
+
+  .level-svg {
+    height: 100%;
+    width: 100%;
+  }
+  .level-col {
+    transform: scale(0.6);
+    margin-top: -8rem;
+    margin-bottom: -8rem;
+  }
+  .level-circle {
+    transform: scale(0.5);
+  }
   
   
 }
