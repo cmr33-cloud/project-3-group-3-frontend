@@ -42,7 +42,7 @@ export default function Results() {
     <Container className = 'card mt-5 results-card'>
       <div class="row">
           <div class='col'>
-        {gameData && gameData[0].participants.map((participant, index) => (
+        {gameData && gameData[0].participants.sort((a,b)=> b.score - a.score).map((participant, index) => (
             
             <>
             <div className='row'>
