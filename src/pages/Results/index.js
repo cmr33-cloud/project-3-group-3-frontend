@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { FaMedal } from "react-icons/fa";
@@ -114,6 +115,7 @@ export default function Results() {
                   </>
                 ))}
           </div>
+
         </div>
       </Container>
     </div>
