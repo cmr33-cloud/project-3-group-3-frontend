@@ -133,6 +133,11 @@
   .stats-text {
     @apply self-center text-xl;
   }
+
+  .results-icons {
+    @apply flex flex-row align-middle;
+  }
+
   #gold {
     @apply text-yellow-500 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
   }

@@ -10,7 +10,9 @@ export default function Results() {
   const gameId = useSelector((state) => state.gameId);
   const [gameData, setGameData] = useState(null);
   useEffect(() => {
-    socket.emit("end-game", { gameId: gameId, score: score });
+    const username = localStorage.getItem('username')
+    const userId = localStorage.getItem('userId')
+    socket.emit("end-game", { gameId: gameId, score: score, userId: userId, username: username });
     let isMounted = true;
     async function fetchData() {
       const token = localStorage.getItem("token");
@@ -25,9 +27,20 @@ export default function Results() {
         options
       );
       const data = await result.json();
-      console.log(gameData);
+      console.log(data);
       if (isMounted) {
         setGameData(data);
+        let scoresArray = []
+        data && data[0].participants.forEach(p => {
+          scoresArray.push(p.score)
+        })
+        const maxScore = Math.max(...scoresArray)
+        data && data[0].participants.forEach(participant => {
+          if (participant.username === username && participant.score === maxScore) {
+            console.log('winner detected', 'emitting add-winner')
+            socket.emit('add-winner', {userId: userId, participant: participant.participant, username: participant.username})
+          } 
+        })
       }
     }
     fetchData();
@@ -50,11 +63,12 @@ export default function Results() {
                   <>
                     <div className="row">
                       <div className="col results-icons">
-                        <h2>User:</h2>
-                        <div>
+                        
+                        <div className = 'flex flex-row self-center align-items-center p-2'>
                           {index === 0 ? (
                             <SideBarIcon
                               text="winner"
+                              className = ''
                               icon={
                                 <FaMedal
                                   id='gold'
@@ -88,7 +102,7 @@ export default function Results() {
                           ):
                             ""
                           }
-                          <h3>{participant.participant}</h3>
+                          <h3>{participant.username}</h3>
                         </div>
                       </div>
                       <div className="col">
