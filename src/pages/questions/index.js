@@ -5,9 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import chroma from "chroma-js";
 import { Redirect } from "react-router";
 import { addScore } from "../../actions";
-
 import { addAnswer } from "../../actions";
-
 const Questions = () => {
   const questions = useSelector((state) => state.questions);
   const noOfQuestions = questions.length-1;
@@ -17,15 +15,12 @@ const Questions = () => {
   const [selected, setSelected] = useState([false, null]);
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
-
   const [correct, setCorrect] = useState(false);
   const [hidden, setHidden] = useState(true);
   const [wheelHidden, setWheelHidden] = useState(true);
   const [allHidden, setAllHidden] = useState(false);
-
   // const fail = new Audio("./fail-buzzer-04.mp3");
   // const alarm = function(){fail.play()}
-
   useEffect(() => {
     if (
       selected[1] &&
@@ -36,16 +31,13 @@ const Questions = () => {
       setCorrect(false);
     }
   }, [selected]);
-
   const dispatch = useDispatch();
   const updateScore = (score) => dispatch(addScore(score));
   const storeScore = useSelector((state) => state.score);
-
   //BEGIN
   // const answer = useSelector((state) => state.answer);
   // const updateAnswer = (answer) => dispatch(addAnswer(answer));
   //END
-
   useEffect(() => {
     setHidden(true);
     if (questNo === noOfQuestions) {
@@ -65,7 +57,6 @@ const Questions = () => {
     }
     setSelected([false, null]);
     setCorrect(false);
-
     const indices = [0, 1, 2, 3];
     const sortedindices = [];
     while (indices.length > 0) {
@@ -79,7 +70,6 @@ const Questions = () => {
     resps[sortedindices[2]] = questions[questNo].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
     resps[sortedindices[3]] = questions[questNo].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
     setAnswers(resps);
-
     const scale = chroma.scale(["lime", "red"]);
     const currentTime = new Date().getTime();
     console.log(currentTime);
@@ -88,11 +78,9 @@ const Questions = () => {
       setWidth((w) => w - 7);
       setColour(scale(intervalTime / 10000).hex());
       //console.log(width)
-
       if (intervalTime >= 10000) {
         clearInterval(inter);
         setHidden(false);
-
         //check if answer is right
         if (selected[0]) {
           const answer = selected[1].innerText;
@@ -109,21 +97,15 @@ const Questions = () => {
             setQuestNo((questNo) => questNo + 1);
           }, 1000);
       }
-
     }, 100)
   }
   }, [questNo]);
-
-
   function dispatchScore(selected) {
     console.log(selected);
   }
-
-
   function createScore(e) {
     e.preventDefault();
     if (selected[0]) {
-      
       selected[1].classList.remove('selectedStyle')
       // const answer = selected[1].innerText;
       // console.log("selcted answer" + answer);
@@ -157,11 +139,8 @@ const Questions = () => {
     }
     // console.log(card.parentNode.parentNode.children)
     // console.log(card.innerText)
-
     // setSelected(card)
-
     // new from master from puja
-
   }
   const style = {
     width: String(width) + "px",
@@ -173,7 +152,6 @@ const Questions = () => {
   const bigStyle = {
     height: 20,
     width: 700,
-
     margin: "auto",
   };
   const overallStyle = {
@@ -185,10 +163,9 @@ const Questions = () => {
   };
   const textStyle = { float: "center", margin: "auto" };
   const answerStyle = {borderRadius: "25px"}
-
   return !redirect ? (
-    <div className="card mt-5">
-    <div hidden = {wheelHidden}>Calculating your score...</div>
+    <div className="card mt-5 rescale-question game-mode-page">
+    <div className="fs-4 text fw-bold" hidden = {wheelHidden}>Calculating your score...</div>
     <div hidden = {allHidden}>
       <h1>
         Question {questNo + 1} of {noOfQuestions}
@@ -199,7 +176,6 @@ const Questions = () => {
             {questions[questNo] && questions[questNo].question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü')}
           </h2>
         </div>
-
         <div id="bigBar"  className = 'bigStyle' style={bigStyle}>
           <div id="littleBar"  className = 'style' style={style}></div>
         </div>
@@ -229,7 +205,7 @@ const Questions = () => {
           </Container>
         </Container>
       </div>
-      <text className="correctAnswerHere" hidden={hidden}>
+      <text className="fs-5 text fw-bold" hidden={hidden}>
         Correct answer: {questions[questNo].correct_answer}
       </text>
       </div>

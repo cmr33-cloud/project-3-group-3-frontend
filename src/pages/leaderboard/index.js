@@ -39,7 +39,7 @@ export default function Leaderboard() {
     return (
         <div>
         <h1>Leaderboard</h1>
-        <Container className="card mt-5 results-card leaderboard-card">
+        <Container className="card mt-5 results-card leaderboard-card game-mode-page">
           <div class="row">
             <div class="col">
                 <div className = 'flex flex-row'>
