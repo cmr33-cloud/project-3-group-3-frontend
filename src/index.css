@@ -35,7 +35,7 @@
   }
 
   .game-mode-options-classic{
-    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-blue-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-blue-500 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium
   }
   .game-mode-options-knockout{
     @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-red-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
@@ -124,31 +124,64 @@
   .available-games-text h4 {
     @apply text-lg;
   }
-  .search {
-    @apply hover:text-red-500
+  
+  .difficulty-box {
+    @apply text-5xl pb-6 pt-6 font-medium;
   }
-  .science {
-    @apply hover:text-green-500
+  .select-difficulty {
+    @apply text-7xl;
   }
-  .computers {
-    @apply hover:text-purple-500
+  .difficulty-custom {
+    @apply border-double
   }
-  .sports {
-    @apply hover:text-yellow-500
+
+  .difficulty-easy {
+    @apply border-double border-green-500 border-4 text-green-500 hover:text-white hover:bg-green-500 hover:cursor-pointer;
   }
-  .animals {
-    @apply hover:text-blue-500
+
+  .difficulty-medium {
+    @apply border-double border-yellow-400 border-4  text-yellow-400 hover:text-white hover:bg-yellow-400 hover:cursor-pointer;
   }
-  .geography {
-    @apply hover:text-gray-500
+
+  .difficulty-hard {
+    @apply border-double border-red-600 border-4 text-red-600 hover:text-white hover:bg-red-600 hover:cursor-pointer;
   }
-  .history {
-    @apply hover:text-pink-500
+
+  .difficulty-custom {
+    @apply text-blue-600 hover:cursor-pointer;
   }
-  .politics {
-    @apply hover:text-yellow-900
+
+  .select-category {
+    @apply text-7xl mb-14 text-blue-500;
   }
   
+  .text-search {
+    @apply hover:text-red-500 text-blue-500 font-medium text-xl;
+  }
+  .text-science {
+    @apply hover:text-green-500 text-blue-500 font-medium text-xl;
+  }
+  .text-computers {
+    @apply hover:text-purple-500 text-blue-500 font-medium text-xl;
+  }
+  .text-sports {
+    @apply hover:text-yellow-500 text-blue-500 font-medium text-xl; 
+  }
+  .text-animals {
+    @apply hover:text-yellow-600 text-blue-500 font-medium text-xl;
+  }
+  .text-geography {
+    @apply hover:text-gray-500 text-blue-500 font-medium text-xl;
+  }
+  .text-history {
+    @apply hover:text-pink-500 text-blue-500 font-medium text-xl;
+  }
+  .text-politics {
+    @apply hover:text-yellow-900 text-blue-500 font-medium text-xl;
+  }
+  .custom-button {
+    @apply text-blue-600 hover:cursor-pointer text-xl font-medium;
+  }
 }
 
 

@@ -40,7 +40,7 @@ export default function SelectCategory() {
                         <Col className="box border border-dark">2</Col>
                     </Row>
                     <Row>
-                        <Col className="box border border-dark">3</Col>
+                        <Col className="box border border-dark">4</Col>
                         <Col className="box border border-dark">4</Col>
                     </Row>
 
@@ -48,41 +48,41 @@ export default function SelectCategory() {
         <div className="row p-2 m-2">
             
           <div className="col options-box-categories card">
-          <h1>Select Category</h1>
-            <div className="row">
-              <div className="col category-box card border-white" id='9' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faSearch} size="4x" className="search"/></div> 
+          <h1 className="select-category ">Select Category</h1>
+            <div className="row justify-content-center">
+              <div className="col-4 category-box card border-white text-search" id='9' onClick={handleClick}>
+                <div><FontAwesomeIcon icon={faSearch} size="4x"/></div> 
                   General Knowledge</div>
-              <div className="col category-box card border-white" id='17' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faFlask} size="4x" className="science"/></div>
+              <div className="col-4 category-box card border-white text-science" id='17' onClick={handleClick}>
+                <div><FontAwesomeIcon icon={faFlask} size="4x"/></div>
                 Science</div>
             </div>
-            <div className="row">
-              <div className="col category-box card border-white" id='18' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faLaptop} size="4x" className="computers"/></div>
+            <div className="row justify-content-center">
+              <div className="col-4 category-box card border-white text-computers" id='18' onClick={handleClick}>
+                <div><FontAwesomeIcon icon={faLaptop} size="4x" /></div>
                 Computers</div>
-              <div className="col category-box card border-white" id='21' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faDumbbell} size="4x" className="sports"/></div>
+              <div className="col-4 category-box card border-white text-sports" id='21' onClick={handleClick}>
+                <div><FontAwesomeIcon icon={faDumbbell} size="4x"/></div>
               Sports</div>
             </div>
-            <div className="row">
-              <div className="col category-box card border-white" id='27' onClick={handleClick}>
-                <div><FontAwesomeIcon className="fa-lg" icon={faPaw} size="4x" className="animals"/></div>
+            <div className="row justify-content-center">
+              <div className="col-4 category-box card border-white text-animals" id='27' onClick={handleClick}>
+                <div><FontAwesomeIcon className="fa-lg" icon={faPaw} size="4x"/></div>
                 Animals</div>
-              <div className="col category-box card border-white" id='22' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faAtlas} size="4x" className="geography"/></div>
+              <div className="col-4 category-box card border-white text-geography" id='22' onClick={handleClick}>
+                <div><FontAwesomeIcon icon={faAtlas} size="4x"/></div>
                 Geography</div>
             </div>
-            <div className="row">
-            <div className = 'col category-box card border-white' id='23' onClick={handleClick}>
-              <div><FontAwesomeIcon icon={faHistory} size="4x" className="history"/></div>
+            <div className="row justify-content-center">
+            <div className = 'col-4 category-box card border-white text-history' id='23' onClick={handleClick}>
+              <div><FontAwesomeIcon icon={faHistory} size="4x"/></div>
             History</div>
-                  <div className = 'col category-box card border-white' id='24' onClick={handleClick}>
-                    <div><FontAwesomeIcon icon={faLandmark} size="4x" className="politics"/></div>
+                  <div className = 'col-4 category-box card border-white text-politics' id='24' onClick={handleClick}>
+                    <div><FontAwesomeIcon icon={faLandmark} size="4x"/></div>
                     Politics</div>
             </div>
-            <div className="row">
-            <div className = 'col category-box card'>Custom</div>
+            <div className="row justify-content-center">
+            <div className = 'col-3 category-box card border-3 mt-4 custom-button border-primary'>Custom</div>
                   
             </div>
           </div>
