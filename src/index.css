@@ -152,7 +152,7 @@
     @apply absolute left-5 ml-5;
   }
   .level-holder {
-    @apply left-5 flex-col justify-center align-middle;
+    @apply left-5 flex-col justify-center align-middle ml-12;
   }
   
   

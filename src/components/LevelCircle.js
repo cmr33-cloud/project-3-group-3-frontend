@@ -25,13 +25,13 @@ export default function LevelCircle(props) {
           cy="100"
           r="57"
           fill="none"
-          stroke="#00CC33"
+          stroke="rgba(139,92,246,1)"
           stroke-width="15"
           stroke-dasharray={`${props.xp*360/(props.level*100)},2000`}
           transform="rotate(-90,100,100)"
         />
         
-        <text text-anchor="middle" x="100" y="110">{props.level}</text>
+        <text text-anchor="middle" x="100" y="110" style={{fontSize: '2rem'}}>{props.level}</text>
       </svg>
     </div>
   );
