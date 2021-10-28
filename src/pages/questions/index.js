@@ -110,7 +110,7 @@ const Questions = () => {
           }, 1000);
       }
 
-    }, 1000)
+    }, 100)
   }
   }, [questNo]);
 
@@ -166,12 +166,12 @@ const Questions = () => {
   const style = {
     width: String(width) + "px",
     backgroundColor: colour,
-    height: 75,
+    height: 20,
     float: "right",
-    borderBottomRightRadius: "25px",
+    borderRadius: "25px",
   };
   const bigStyle = {
-    height: 75,
+    height: 20,
     width: 700,
 
     margin: "auto",
@@ -200,8 +200,8 @@ const Questions = () => {
           </h2>
         </div>
 
-        <div id="bigBar"  className = 'bigStyle'>
-          <div id="littleBar"  className = 'style'></div>
+        <div id="bigBar"  className = 'bigStyle' style={bigStyle}>
+          <div id="littleBar"  className = 'style' style={style}></div>
         </div>
       </div>
       <div
