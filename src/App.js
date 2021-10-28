@@ -1,12 +1,12 @@
 import "./App.css";
 import React from "react";
-import Login from "./pages/Login/index";
+import Login from "./pages/login/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
 
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard";
 import Sidebar from "./components/Sidebar";
 import CustomNav from "./components/CustomNav";
 import About from "./pages/About";
@@ -15,9 +15,10 @@ import Logout from "./pages/Logout";
 import CreateRoom from "./pages/CreateRoom";
 import SelectCategory from "./pages/SelectCategory";
 import SelectDifficulty from "./pages/SelectDifficulty";
-import Lobby from './pages/Lobby'
-import Questions from "./pages/Questions";
+import Lobby from './pages/lobby'
+import Questions from "./pages/questions";
 import Results from "./pages/Results";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
         <Route path="/logout">
           <Logout />
         </Route>
+        {/* temp route */}
         <Route path="/testing">
           <Sidebar />
           <CustomNav />
@@ -79,6 +81,11 @@ function App() {
         <Sidebar />
           <CustomNav />
           <Results/>
+        </Route>
+        <Route path="/leaderboard">
+        <Sidebar />
+          <CustomNav />
+          <Leaderboard/>
         </Route>
     
 

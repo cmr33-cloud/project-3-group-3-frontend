@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 export default function WaitingRoom(props) {
@@ -39,8 +40,8 @@ export default function WaitingRoom(props) {
         };
       }, []);
     return (
-        <div>
-          <h2>Waiting room for {props.roomId}</h2>
+        <Container className = ''>
+          <h2 className = 'top-0'>Waiting room for {props.roomId}</h2>
             {props.participants && props.participants.map((p,index) => {
                 console.log(p)
                 return (
@@ -49,6 +50,6 @@ export default function WaitingRoom(props) {
             })}
             <h3 >Your id: {socket.id}</h3>
             {props.hostError ? <h4 className = 'host-error mt-5'>Only the host can start the game!</h4> : ""}
-        </div>
+        </Container>
     )
 }

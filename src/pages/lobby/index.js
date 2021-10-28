@@ -13,6 +13,7 @@ export default function Lobby() {
   const questions = useSelector((state) => state.questions);
   const socket = useSelector((state) => state.socket);
   const room = useSelector((state) => state.room);
+  const difficulty = useSelector((state) => state.difficulty);
   const socketRef = useRef();
   const [hostError, setHostError] = useState(false);
   const [currentRoom, setCurrentRoom] = useState(room);
@@ -68,6 +69,7 @@ export default function Lobby() {
         }
       })
       socket.emit("start-game", {
+        difficulty: difficulty,
         questions: questions,
         room: room,
         participants: newParticipants,
