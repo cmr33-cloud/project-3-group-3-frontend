@@ -48,7 +48,15 @@ const Questions = () => {
     if (questNo === noOfQuestions) {
       setAllHidden(true);
       setWheelHidden(false);
+      if (correct) {
+        // setScore((c) => c + 1);
+        updateScore(storeScore + 1);
+      }
+      setTimeout(() => {
+        setRedirect(true);
+      }, 1000);
     }
+    else{
     if (selected[0]) {
       selected[1].style.backgroundColor = "#FFFFFF";
     }
@@ -89,19 +97,14 @@ const Questions = () => {
             updateScore(storeScore + 1);
           }
         }
-        if (questNo < noOfQuestions) {
           setTimeout(() => {
             setWidth(700);
             setColour("lime");
             setQuestNo((questNo) => questNo + 1);
           }, 1000);
-        } else {
-          setTimeout(() => {
-            setRedirect(true);
-          }, 1000);
-        }
       }
-    }, 100);
+    }, 100)
+  }
   }, [questNo]);
 
   // useEffect(() => {
@@ -231,9 +234,6 @@ const Questions = () => {
     <div className="card mt-5">
     <div hidden = {wheelHidden}>Calculating your score...</div>
     <div hidden = {allHidden}>
-      <text>{selected[0] ? selected[1].innerText : "Hello"}</text>
-      <text>{String(correct)}</text>
-      <text>{storeScore}</text>
       <text>
         Question {questNo + 1} of {noOfQuestions}
       </text>

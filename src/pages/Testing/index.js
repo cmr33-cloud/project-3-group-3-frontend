@@ -19,7 +19,7 @@ export default function Testing() {
     //   type: e.target[3].value,
     // };
     const searchTerm = {
-      amount: 4,
+      amount: 6,
       category: 9,
       difficulty: "easy",
       type: "multiple"
