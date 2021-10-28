@@ -8,7 +8,7 @@ import { addScore } from "../../actions";
 import { addAnswer } from "../../actions";
 const Questions = () => {
   const questions = useSelector((state) => state.questions);
-  const noOfQuestions = questions.length;
+  const noOfQuestions = questions.length-1;
   const [questNo, setQuestNo] = useState(0);
   const [answers, setAnswers] = useState([null, null, null, null]);
   const [redirect, setRedirect] = useState(false);
@@ -17,6 +17,8 @@ const Questions = () => {
   const [colour, setColour] = useState("lime");
   const [correct, setCorrect] = useState(false);
   const [hidden, setHidden] = useState(true);
+  const [wheelHidden, setWheelHidden] = useState(true);
+  const [allHidden, setAllHidden] = useState(false);
 
   // const fail = new Audio("./fail-buzzer-04.mp3");
   // const alarm = function(){fail.play()}
@@ -42,9 +44,11 @@ const Questions = () => {
   //END
 
   useEffect(() => {
-
     setHidden(true);
-
+    if (questNo === noOfQuestions) {
+      setAllHidden(true);
+      setWheelHidden(false);
+    }
     if (selected[0]) {
       selected[1].style.backgroundColor = "#FFFFFF";
     }
@@ -80,24 +84,20 @@ const Questions = () => {
           const answer = selected[1].innerText;
           console.log("selected answer" + answer);
           console.log("correct answer" + questions[questNo].correct_answer);
-          if (selected[1].innerText === questions[questNo].correct_answer) {
+          if (correct) {
             // setScore((c) => c + 1);
             updateScore(storeScore + 1);
           }
         }
-        if (questNo < noOfQuestions - 1) {
+        if (questNo < noOfQuestions) {
           setTimeout(() => {
-            dispatchScore(selected);
             setWidth(700);
             setColour("lime");
             setQuestNo((questNo) => questNo + 1);
           }, 1000);
         } else {
           setTimeout(() => {
-            dispatchScore(selected);
-            setWidth(700);
-            setColour("lime");
-            setQuestNo((questNo) => questNo + 1);
+            setRedirect(true);
           }, 1000);
         }
       }
@@ -229,6 +229,8 @@ const Questions = () => {
 
   return !redirect ? (
     <div className="card mt-5">
+    <div hidden = {wheelHidden}>Calculating your score...</div>
+    <div hidden = {allHidden}>
       <text>{selected[0] ? selected[1].innerText : "Hello"}</text>
       <text>{String(correct)}</text>
       <text>{storeScore}</text>
@@ -274,6 +276,7 @@ const Questions = () => {
       <text className="correctAnswerHere" hidden={hidden}>
         Correct answer: {questions[questNo].correct_answer}
       </text>
+      </div>
     </div>
   ) : (
     <Redirect to="/results" />
