@@ -11,6 +11,11 @@
     transition-all duration-300 ease-linear;
     
   }
+
+  .results-icons .sidebar-icon {
+    @apply hover:bg-gray-300 hover:scale-110;
+  }
+
   .form-button {
     @apply border-none bg-secondary text-white p-2 m-2
      shadow-xl hover:text-secondary hover:bg-gray-400
@@ -127,6 +132,15 @@
 
   .stats-text {
     @apply self-center text-xl;
+  }
+  #gold {
+    @apply text-yellow-500 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
+  }
+  #silver {
+    @apply text-gray-500 
+  }
+  #bronze {
+    @apply text-yellow-700 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
   }
   
   

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { FaMedal } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import SideBarIcon from "../../components/SideBarIcon";
 
 export default function Results() {
   const score = useSelector((state) => state.score);
@@ -27,7 +29,6 @@ export default function Results() {
       if (isMounted) {
         setGameData(data);
       }
-      
     }
     fetchData();
 
@@ -37,30 +38,69 @@ export default function Results() {
   }, []);
 
   return (
-      <div>
-          <h1>the game is over...</h1>
-    <Container className = 'card mt-5 results-card'>
-      <div class="row">
-          <div class='col'>
-        {gameData && gameData[0].participants.sort((a,b)=> b.score - a.score).map((participant, index) => (
-            
-            <>
-            <div className='row'>
-
-            <div className = 'col'>
-                <h2>User:</h2> 
-                <h3>{participant.participant}</h3>
-            </div>
-            <div className = 'col'>
-                <h2>Score:</h2> 
-                <h3>{participant.score}</h3>
-            </div>
-            </div>
-            </>
-        ))}
+    <div>
+      <h1>the game is over...</h1>
+      <Container className="card mt-5 results-card">
+        <div class="row">
+          <div class="col">
+            {gameData &&
+              gameData[0].participants
+                .sort((a, b) => b.score - a.score)
+                .map((participant, index) => (
+                  <>
+                    <div className="row">
+                      <div className="col results-icons">
+                        <h2>User:</h2>
+                        <div>
+                          {index === 0 ? (
+                            <SideBarIcon
+                              text="winner"
+                              icon={
+                                <FaMedal
+                                  id='gold'
+                                  size="28"
+                                  data-testid="gold-medal-icon"
+                                />
+                              }
+                            />
+                          ) : index === 1 ? (
+                            <SideBarIcon
+                              text="runner up"
+                              icon={
+                                <FaMedal
+                                  id='silver'
+                                  size="28"
+                                  data-testid="silver-medal-icon"
+                                />
+                              }
+                            />
+                          ) : index === 2 ? (
+                            <SideBarIcon
+                              text="almost good"
+                              icon={
+                                <FaMedal
+                                  id='bronze'
+                                  size="28"
+                                  data-testid="silver-medal-icon"
+                                />
+                              }
+                            />
+                          ):
+                            ""
+                          }
+                          <h3>{participant.participant}</h3>
+                        </div>
+                      </div>
+                      <div className="col">
+                        <h2>Score:</h2>
+                        <h3>{participant.score}</h3>
+                      </div>
+                    </div>
+                  </>
+                ))}
+          </div>
         </div>
-      </div>
-    </Container>
-        </div>
+      </Container>
+    </div>
   );
 }
