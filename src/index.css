@@ -35,16 +35,16 @@
   }
 
   .game-mode-options-classic{
-    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-blue-500 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium
-  }
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium; 
+  } 
   .game-mode-options-knockout{
-    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-red-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
   }
   .game-mode-options-quickfire{
-    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-green-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
   }
   .game-mode-options-custom{
-    @apply motion-safe:hover:scale-105 text-black hover:text-white hover:bg-yellow-500 hover:border-double hover:border-white hover:border-8 hover:font-bold
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
   }
 
   .dashboard-container {
@@ -181,6 +181,14 @@
   }
   .custom-button {
     @apply text-blue-600 hover:cursor-pointer text-xl font-medium;
+  }
+  .game-mode {
+    @apply text-shade-2 mb-10 font-semibold text-6xl;
+  }
+  .game-mode-page {
+    @apply bg-shade-6;
+    background-size: cover;
+    
   }
 }
 

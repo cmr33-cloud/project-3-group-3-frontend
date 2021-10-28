@@ -8,6 +8,7 @@ module.exports = {
         colors: {
           primary: '#202225',
           secondary: '#5865f2',
+          tertiary: '#050a30',
           gray: colors.trueGray,
           gray: {
             900: '#202225',
@@ -18,6 +19,14 @@ module.exports = {
             300: '#e3e5e8',
             200: '#ebedef',
             100: '#f2f3f5',
+          },
+          shade: {
+            1: '#050a30',
+            2: '#12229d',
+            3: '#233dff',
+            4: '#3a9bdc',
+            5: '#5cb6f9',
+            6: '#cae6ff',
           }
         }
         
