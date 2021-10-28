@@ -35,23 +35,23 @@
   }
 
   .game-mode-options-classic{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium; 
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold; 
   } 
   .game-mode-options-knockout{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
   }
   .game-mode-options-quickfire{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
   }
   .game-mode-options-custom{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold font-medium;
+    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold;
   }
 
   .dashboard-container {
     @apply rounded-md shadow-lg left-6;
   }
   .options-box {
-    @apply w-auto align-middle justify-center p-2 m-2
+    @apply w-auto align-middle justify-center p-2 m-2 text-6xl font-medium
     hover:cursor-pointer;
     height: 400px;
     

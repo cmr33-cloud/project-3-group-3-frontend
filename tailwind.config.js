@@ -27,6 +27,7 @@ module.exports = {
             4: '#3a9bdc',
             5: '#5cb6f9',
             6: '#cae6ff',
+            7: '#f4f6fc',
           }
         }
         

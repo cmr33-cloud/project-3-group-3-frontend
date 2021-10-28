@@ -36,12 +36,12 @@ export default function CreateRoom() {
 
                 </Container> */}
       <div className="row p-2 m-2">
-          <div className="col options-box card fs-1 text game-mode-options-classic border-4 border-primary" onClick={handleClick} id='classic'>Classic</div>
-          <div className= "col options-box card fs-1 text game-mode-options-knockout border-4 border-primary" onClick={handleClick} id='knockout'>Knockout</div>
+          <div className="col options-box card game-mode-options-classic border-4 border-primary" onClick={handleClick} id='classic'>Classic</div>
+          <div className= "col options-box card game-mode-options-knockout border-4 border-primary" onClick={handleClick} id='knockout'>Knockout</div>
         </div>
         <div className="row p-2 m-2">
-          <div className="col options-box card fs-1 text game-mode-options-quickfire border-4 border-primary " onClick={handleClick} id='quickfire'>Quickfire</div>
-          <div className="col options-box card fs-1 text game-mode-options-custom border-4 border-primary" onClick={handleClick} id='custom'>Custom</div>
+          <div className="col options-box card game-mode-options-quickfire border-4 border-primary " onClick={handleClick} id='quickfire'>Quickfire</div>
+          <div className="col options-box card game-mode-options-custom border-4 border-primary" onClick={handleClick} id='custom'>Custom</div>
         </div>
       </Container>
     </div> : <Redirect to='/selectCategory'/>
