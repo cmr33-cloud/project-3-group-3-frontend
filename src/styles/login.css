@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
 :root {
     --bg-colour-light: #F6F6F6;
     --text-colour-light: white;
@@ -10,33 +16,54 @@ body {
     background-color: var(--bg-colour-light);
     height: 100vh;
 }
-#particles-js {
+
+html {
     height: 100vh;
 }
-.animated-logo {
-    width: 100%;
-    border-radius: 30px;
-}
+
+
 .app {
     position: absolute;
     top: 60px;
     width: 100%;
 }
+.buttons {
+    
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#bg-login {
+    position: absolute;
+    
+    left: -800px;
+    transform: rotate(-90deg);
+    z-index: -2;
+    opacity: 0.3;
+    height: 50vh;
+}
 /* LOGIN AND REGISTER BUTTON RELATED IN THE LANDING PAGE */
 .buttons button {
-    background-color: var(--bg-colour-dark-transparent);
-    border-radius: 25px;
-    border: none;
-    width: 100%;
-    margin: 10px;
-    padding: 10px 0px;
-    font-size: 20px;
-    font-weight: bold;
-    color: var(--text-colour-light);
+    @apply bg-gray-400  rounded-lg text-3xl p-5 m-2 w-full shadow-lg
+    hover:bg-secondary hover:text-white hover:shadow-2xl font-medium
+    transition-all duration-200 ease-linear;
 }
-.buttons button:hover {
-    background-color: var(--bg-colour-dark-transparent-hover);
+
+.special-button {
+    @apply bg-gray-400  rounded-lg text-2xl p-5 m-2 w-full shadow-lg
+    hover:bg-shade-5 hover:text-white hover:shadow-2xl font-medium
+    transition-all duration-200 ease-linear;
 }
+
+.submit-special-button {
+    @apply mt-2 p-5 w-full;
+}
+
 /* FORM RELATED CSS */
 .form-item {
     display: flex;
@@ -72,6 +99,12 @@ body {
     background-color: var(--bg-colour-submit);
 }
 /* LOGIN MODAL */
+
+.login-modal {
+    
+    margin-top: 15%;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -99,4 +132,13 @@ body {
 }
 #register-to-login:hover {
     cursor: pointer;
+}
+.landing-title {
+    @apply text-secondary filter drop-shadow-2xl text-4xl;
+}
+
+
+
+
+
 }

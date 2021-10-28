@@ -19,17 +19,22 @@ import Lobby from './pages/Lobby'
 import Questions from "./pages/Questions";
 import Results from "./pages/Results";
 import Leaderboard from "./pages/Leaderboard";
+import WavesBg from "./components/WavesBg";
 
 function App() {
   return (
     <div className="App">
+     
       <Switch>
         <Route path="/" exact>
+        <WavesBg id='bg-login'/>
           <Login />
+          
         </Route>
         <Route path="/dashboard" exact>
           <Sidebar />
           <CustomNav />
+          
           <Dashboard />
         </Route>
         <Route path="/newgame">

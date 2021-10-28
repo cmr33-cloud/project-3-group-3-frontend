@@ -1,15 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer components {
 
   .sidebar-icon {
-    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-300 text-indigo-600
-    hover:bg-indigo-400 hover:text-white
-    hover:cursor-pointer
-    rounded-3xl hover:rounded-xl
-    transition-all duration-300 ease-linear;
-    
+    @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-300 text-indigo-600 hover:bg-indigo-400 hover:text-white hover:cursor-pointer rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear;
+
   }
 
   .results-icons .sidebar-icon {
@@ -17,80 +14,103 @@
   }
 
   .form-button {
-    @apply border-none bg-secondary text-white p-2 m-2
-     shadow-xl hover:text-secondary hover:bg-gray-400
-    rounded-xl hover:rounded-md
-    transition-all duration-300 ease-linear;
+    @apply border-none bg-secondary text-white p-2 m-2 shadow-xl hover:text-secondary hover:bg-gray-400 rounded-xl hover:rounded-md transition-all duration-300 ease-linear;
   }
-    h1 {
-      @apply text-secondary drop-shadow-lg;
-    }
-    h2, h3 {
-      @apply text-purple-500 drop-shadow-md;
-    }
-  
+
+  h1 {
+    @apply text-secondary drop-shadow-lg;
+  }
+  #bg-dash {
+    position: absolute;
+    z-index: -2;
+    top: 100px;
+    opacity: 0.3;
+    height: 100vh;
+}
+
+  h2,
+  h3 {
+    @apply text-purple-500 drop-shadow-md;
+  }
+
   .sidebar-tooltip {
-    @apply absolute w-auto p-2 m-2 min-w-max left-14
-    rounded-md shadow-md
-    text-white bg-gray-900
-    text-xs font-bold
-    transition-all duration-100 scale-0 origin-left z-10;
+    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-xs font-bold transition-all duration-100 scale-0 origin-left z-10;
     z-index: 20;
   }
 
   .custom-nav {
     @apply p-2 top-0 left-0 bg-gray-300 z-10;
   }
+
   .custom-nav-text {
     @apply text-indigo-700 drop-shadow-lg;
   }
 
-  .game-mode-options-classic{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer; 
-  } 
-  .game-mode-options-knockout{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
+  .game-mode-options-classic {
+    @apply motion-safe:hover:scale-105  text-blue-600 text-6xl 
+    hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
-  .game-mode-options-quickfire{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
+
+  .game-mode-options-knockout {
+    @apply motion-safe:hover:scale-105  text-blue-600 text-6xl hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
-  .game-mode-options-custom{
-    @apply motion-safe:hover:scale-105 text-blue-600 hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer;
+
+  .game-mode-options-quickfire {
+    @apply motion-safe:hover:scale-105  text-blue-600 text-6xl hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer
+    transition-all duration-200 ease-linear;
+  }
+
+  .game-mode-options-custom {
+    @apply motion-safe:hover:scale-105  text-blue-600 text-6xl hover:text-white hover:bg-shade-4 hover:border-double hover:border-white hover:border-8 hover:font-bold hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
 
   .dashboard-container {
     @apply rounded-md shadow-lg left-6;
   }
-  .options-box {
-    
-    @apply flex flex-col align-top w-auto justify-center p-2 m-2
-      
-    hover:cursor-pointer;
-    height: 400px;
-    
+
+  .options-box-gamemode {
+
+    @apply flex flex-col align-top w-auto justify-center p-2 m-2 shadow-xl hover:cursor-pointer hover:shadow-2xl;
+    height: 200px;
+
   }
+  .options-box {
+
+    @apply flex flex-col align-top w-auto justify-center p-2 m-2 shadow-xl hover:cursor-pointer hover:shadow-2xl;
+    height: 400px;
+
+  }
+
   .options-box-categories {
     @apply w-auto align-middle justify-center p-2 m-2;
-    height: auto;
+    height: 815px;
   }
+
   .category-box {
     @apply w-auto align-middle justify-center p-2 m-2 font-medium;
     hover:cursor-pointer;
   }
+
   .messages-box {
     @apply flex flex-col rounded-md w-auto justify-items-start p-2 m-2 border-2 border-secondary shadow-lg;
     overflow: auto;
     height: 250px;
   }
+
   .game-info-container {
     @apply flex flex-col w-auto p-2 m-2;
     overflow: auto;
     height: 20rem;
   }
+
   .gamesLink {
     @apply hover:cursor-pointer;
   }
-  .sent-title  {
+
+  .sent-title {
     @apply text-purple-500;
   }
 
@@ -101,6 +121,7 @@
   .sent-self {
     text-align: left;
   }
+
   .sent-other {
     text-align: right;
   }
@@ -109,7 +130,7 @@
     text-align: left;
     margin-left: -50px;
   }
-  
+
   .host-error {
     @apply text-yellow-600;
   }
@@ -119,31 +140,35 @@
   }
 
   .stats h2 {
-    @apply  text-center text-purple-500;
+    @apply text-center text-purple-500;
   }
 
   .stats h3 {
     @apply ml-10 text-xl text-black;
   }
+
   .available-games-title {
     @apply text-secondary;
   }
+
   .available-games-text h2 {
     @apply text-purple-500
   }
+
   .available-games-text h3 {
     @apply text-xl;
   }
+
   .available-games-text h4 {
     @apply text-lg;
   }
+
   .stats-icons-group {
     @apply border-2 align-middle;
   }
 
   .stats-icons-group .sidebar-icon {
-    @apply rounded-sm shadow-2xl text-purple-500
-    hover:text-white;
+    @apply rounded-sm shadow-2xl text-purple-500 hover:text-white;
   }
 
   .stats-text {
@@ -157,9 +182,11 @@
   #gold {
     @apply text-yellow-500 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
   }
+
   #silver {
-    @apply text-gray-500 
+    @apply text-gray-500
   }
+
   #bronze {
     @apply text-yellow-700 bg-gray-300 hover:rounded-sm hover:bg-gray-300;
   }
@@ -167,6 +194,7 @@
   .level-icon {
     @apply absolute left-5 ml-5;
   }
+
   .level-holder {
     @apply left-5 flex-col justify-center align-middle scale-50;
   }
@@ -175,91 +203,135 @@
     height: 100%;
     width: 100%;
   }
+
   .level-col {
     transform: scale(0.6);
     margin-top: -8rem;
     margin-bottom: -8rem;
   }
+
   .level-circle {
     transform: scale(0.5);
   }
+
   .leaderboard-card {
     height: 30rem;
     overflow: auto;
   }
-  
-  
+
+
   .difficulty-box {
     @apply text-5xl pb-6 pt-6 font-medium;
   }
+
   .select-difficulty {
     @apply text-7xl text-shade-2;
   }
+
   .difficulty-custom {
     @apply border-double
   }
 
   .difficulty-easy {
-    @apply border-solid border-green-500 border-4 text-green-500 hover:text-white hover:bg-green-500 hover:cursor-pointer;
+    @apply border-solid border-green-500 border-4 text-green-500 hover:text-white hover:bg-green-500 hover:cursor-pointer 
+    transition-all duration-200 ease-linear
+    drop-shadow-md
+    hover:drop-shadow-lg;
   }
 
   .difficulty-medium {
-    @apply border-solid border-yellow-400 border-4  text-yellow-400 hover:text-white hover:bg-yellow-400 hover:cursor-pointer;
+    @apply border-solid border-yellow-300 border-4 text-yellow-300 hover:text-white hover:bg-yellow-300 hover:cursor-pointer 
+    transition-all duration-200 ease-linear
+    drop-shadow-md
+    hover:drop-shadow-lg;
   }
 
   .difficulty-hard {
-    @apply border-solid border-red-600 border-4 text-red-600 hover:text-white hover:bg-red-600 hover:cursor-pointer;
+    @apply border-solid border-red-400 border-4 text-red-600 hover:text-white hover:bg-red-400 hover:cursor-pointer 
+    transition-all duration-200 ease-linear
+    drop-shadow-md
+    hover:drop-shadow-lg;
   }
 
   .difficulty-custom {
-    @apply text-blue-600 hover:cursor-pointer;
+    @apply text-blue-600 hover:cursor-pointer
+    transition-all duration-200 ease-linear
+    drop-shadow-md
+    hover:drop-shadow-lg;
   }
 
   .select-category {
-    @apply text-7xl mb-14 text-shade-2 pt-8;
+    @apply text-7xl mb-14 text-shade-2 pt-8 mt-2;
   }
-  
+
   .text-search {
-    @apply hover:text-red-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-red-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-science {
-    @apply hover:text-green-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-green-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-computers {
-    @apply hover:text-purple-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-purple-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-sports {
-    @apply hover:text-yellow-500 text-shade-4 font-medium text-xl hover:cursor-pointer; 
+    @apply hover:text-yellow-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-animals {
-    @apply hover:text-yellow-600 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-yellow-600 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-geography {
-    @apply hover:text-gray-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-gray-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-history {
-    @apply hover:text-pink-500 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-pink-500 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .text-politics {
-    @apply hover:text-yellow-900 text-shade-4 font-medium text-xl hover:cursor-pointer;
+    @apply hover:text-yellow-900 text-shade-4 font-medium text-xl hover:cursor-pointer
+    transition-all duration-200 ease-linear;
   }
+
   .custom-button {
-    @apply text-blue-600 hover:cursor-pointer text-xl font-medium;
+    @apply text-blue-600 hover:cursor-pointer text-xl font-medium
+    transition-all duration-200 ease-linear;
   }
+
   .game-mode {
     @apply text-shade-2 mb-10 font-semibold text-6xl;
   }
+
   .game-mode-page {
-    @apply bg-shade-6;
-    background-size: cover; 
+    @apply flex flex-col bg-gradient-to-b from-white via-shade-6 to-white h-screen ;
+    background-size: cover;
   }
+
   .custom-button {
     @apply hover:text-white hover:bg-shade-4
+    transition-all duration-200 ease-linear;
   }
+
   .custom-button-1 {
-    @apply hover:text-white hover:bg-shade-4 
+    @apply hover:text-white hover:bg-shade-4
+    transition-all duration-200 ease-linear;
   }
-  
+
+  .custom-form {
+    @apply focus:bg-secondary;
+  }
+
 }
 
 
