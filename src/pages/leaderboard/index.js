@@ -42,6 +42,10 @@ export default function Leaderboard() {
         <Container className="card mt-5 results-card leaderboard-card">
           <div class="row">
             <div class="col">
+                <div className = 'flex flex-row'>
+                <h2 className = 'self-start'>Player</h2>
+                
+                </div>
               {gameData &&
                 gameData
                   .map((participant, index) => (
@@ -91,8 +95,8 @@ export default function Leaderboard() {
                             
                           </div>
                         </div>
-                        <div className="col">
-                          <h2>Score:</h2>
+                        <div className="col align-middle self-center">
+                         
                           <h3>{participant.score}</h3>
                         </div>
                       </div>
