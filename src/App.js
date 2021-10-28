@@ -18,7 +18,7 @@ import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/lobby'
 import Questions from "./pages/questions";
 import Results from "./pages/Results";
-import Leaderboard from "./pages/Leaderboard";
+import Leaderboard from "./pages/leaderboard";
 
 function App() {
   return (
