@@ -102,8 +102,8 @@ export default function Dashboard() {
     <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
       <div className="row mt-2">
         <div className="col stats">
-          <h1>{userData && userData.name}</h1>
-          <h2>Stats</h2>
+          <h1>{userData && `Hello ${userData.name}, welcome to Inquizitve!`}</h1>
+          <h2>your stats</h2>
           <div className="stats-icons-group">
             {userData &&
               Object.entries(userData.stats).map((item, index) => (
@@ -113,7 +113,7 @@ export default function Dashboard() {
                   { index === 0 ? (
                     <>
                     <div className = 'col'>
-                    <SideBarIcon text="home" icon={"xp"} />
+                    <SideBarIcon text="xp" icon={"xp"} />
                     </div>
                     <div className = 'col stats-text'>
                     {item[1]}
@@ -163,7 +163,8 @@ export default function Dashboard() {
         </div>
         <div className="col">
           <h1 className="available-games-title">Available games</h1>
-          <Container className="card mt-5 game-info-container">
+          <h3>click to join!</h3>
+          <Container className="card mt-4 game-info-container">
             <div className="available-games-text">
               {gamesData && gamesData.length > 0 ? (
                 gamesData.map((game) => (
@@ -190,9 +191,9 @@ export default function Dashboard() {
             </div>
           </Container>
           <div>
-            <Button className="mb-5" onClick={handleNewGame}>
+            <button className="mb-5 form-button" onClick={handleNewGame}>
               Create game
-            </Button>
+            </button>
           </div>
         </div>
       </div>

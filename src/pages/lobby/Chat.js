@@ -17,6 +17,7 @@ export default function Chat(props) {
 
         return (
             <div>
+                <h2>Chat</h2>
                 <div className="messages-box">
                     {props.messages &&
                         props.messages.map((obj, index) => {
