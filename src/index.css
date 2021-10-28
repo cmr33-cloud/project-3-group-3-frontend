@@ -10,12 +10,14 @@
 
   /* questions page */
   .answerStyle {
-    @apply bg-white text-black rounded-lg text-2xl m-5 p-2 border-solid border-white border-2;
+    @apply bg-white text-black rounded-lg text-2xl m-5 py-10  shadow-lg;
     height: 20%;
   }
 
   .selectedStyle {
-    @apply bg-secondary text-white rounded-md transition-all duration-100 ease-linear font-bold border-solid border-shade-4 border-4;
+    @apply bg-secondary text-white rounded-md transition-all duration-100 ease-linear 
+    font-bold 
+    shadow-xl;
   }
 
   .customBox {

@@ -74,10 +74,10 @@ const Questions = () => {
       indices.splice(index, 1);
     }
     const resps = [null, null, null, null];
-    resps[sortedindices[0]] = questions[questNo].correct_answer;
-    resps[sortedindices[1]] = questions[questNo].incorrect_answers[0];
-    resps[sortedindices[2]] = questions[questNo].incorrect_answers[1];
-    resps[sortedindices[3]] = questions[questNo].incorrect_answers[2];
+    resps[sortedindices[0]] = questions[questNo].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[1]] = questions[questNo].incorrect_answers[0].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[2]] = questions[questNo].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[3]] = questions[questNo].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
     setAnswers(resps);
 
     const scale = chroma.scale(["lime", "red"]);
@@ -110,7 +110,7 @@ const Questions = () => {
           }, 1000);
       }
 
-    }, 1000000)
+    }, 1000)
   }
   }, [questNo]);
 
@@ -190,14 +190,14 @@ const Questions = () => {
     <div className="card mt-5">
     <div hidden = {wheelHidden}>Calculating your score...</div>
     <div hidden = {allHidden}>
-      <text>
+      <h1>
         Question {questNo + 1} of {noOfQuestions}
-      </text>
+      </h1>
       <div  className = 'overallStyle'>
         <div id="textdiv"  className = 'bigStyle'>
-          <text>
-            {questions[questNo] && questions[questNo].question}
-          </text>
+          <h2>
+            {questions[questNo] && questions[questNo].question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü')}
+          </h2>
         </div>
 
         <div id="bigBar"  className = 'bigStyle'>
