@@ -1,0 +1,11 @@
+
+.modalStyle {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 600px;
+    height: 400px;
+    margin-left: 450px;
+    margin-top: 180px;
+
+}
