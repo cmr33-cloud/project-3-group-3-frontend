@@ -11,13 +11,13 @@ const Questions = () => {
   const questions = useSelector((state) => state.questions);
   const score = useSelector((state) => state.score)
   const selected = useSelector(state => state.selected)
-  const socket = useSelector(state => state.socket)
+  // const socket = useSelector(state => state.socket)
   const noOfQuestions = questions.length
   const [questNo, setQuestNo] = useState(0)
   //const [questions, setQuestions] = useState("");
   const [answers, setAnswers] = useState([null, null, null, null]);
   const [redirect, setRedirect] = useState(false);
-  // const [selected, setSelected] = useState([false,null])
+  const [selected, setSelected] = useState([false,null])
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
   // const [score, setScore] = useState(0)
@@ -30,7 +30,7 @@ const Questions = () => {
   }
 
   const dispatch = useDispatch()
-
+  const updateScore = (score) => dispatch(addScore(score))
 
   useEffect(()=>{
     

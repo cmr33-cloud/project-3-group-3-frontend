@@ -15,6 +15,7 @@ const Questions = () => {
   const [selected, setSelected] = useState([false,null])
   const [width, setWidth] = useState(700);
   const [colour, setColour] = useState("lime");
+  const [correct, setCorrect] = useState(false)
   // const [score, setScore] = useState(0)
   //
   const dispatch = useDispatch()
@@ -35,6 +36,9 @@ const Questions = () => {
     resps[sortedindices[3]] = questions[questNo].incorrect_answers[2];
     setAnswers(resps);
   }, [questNo])
+
+
+
   useEffect(() => {
     const scale = chroma.scale(["lime", "red"]);
     const currentTime = new Date().getTime()

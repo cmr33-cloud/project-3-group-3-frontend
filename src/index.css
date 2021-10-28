@@ -96,7 +96,7 @@
   }
 
   .stats h3 {
-    @apply ml-10 text-left text-xl text-black;
+    @apply ml-10 text-xl text-black;
   }
   .available-games-title {
     @apply text-secondary;
@@ -110,6 +110,18 @@
   .available-games-text h4 {
     @apply text-lg;
   }
+  .stats-icons-group {
+    @apply border-2 align-middle;
+  }
+
+  .stats-icons-group .sidebar-icon {
+    @apply rounded-sm shadow-2xl text-purple-500;
+  }
+
+  .stats-text {
+    @apply self-center text-xl;
+  }
+  
   
 }
 
