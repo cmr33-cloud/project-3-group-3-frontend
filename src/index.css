@@ -1,8 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+  box-sizing: border-box;
+}
 @layer components {
+
+
+
+  /* questions page */
+  .answerStyle {
+    @apply bg-white text-black rounded-lg text-2xl m-5 p-2 border-solid border-white border-2;
+    height: 20%;
+  }
+
+  .selectedStyle {
+    @apply bg-secondary text-white rounded-md transition-all duration-100 ease-linear font-bold border-solid border-shade-4 border-4;
+  }
+
+  .customBox {
+    @apply flex flex-col w-auto h-auto mt-5;
+  }
 
   .sidebar-icon {
     @apply relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto shadow-lg bg-gray-300 text-indigo-600 hover:bg-indigo-400 hover:text-white hover:cursor-pointer rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear;
@@ -20,13 +38,7 @@
   h1 {
     @apply text-secondary drop-shadow-lg;
   }
-  #bg-dash {
-    position: absolute;
-    z-index: -2;
-    top: 100px;
-    opacity: 0.3;
-    height: 100vh;
-}
+ 
 
   h2,
   h3 {

@@ -61,7 +61,7 @@ const Questions = () => {
     }
     else{
     if (selected[0]) {
-      selected[1].style.backgroundColor = "#FFFFFF";
+      selected[1].classList.remove('selectedStyle');
     }
     setSelected([false, null]);
     setCorrect(false);
@@ -110,7 +110,7 @@ const Questions = () => {
           }, 1000);
       }
 
-    }, 100)
+    }, 1000000)
   }
   }, [questNo]);
 
@@ -123,7 +123,8 @@ const Questions = () => {
   function createScore(e) {
     e.preventDefault();
     if (selected[0]) {
-      selected[1].style.backgroundColor = "#FFFFFF";
+      
+      selected[1].classList.remove('selectedStyle')
       // const answer = selected[1].innerText;
       // console.log("selcted answer" + answer);
       // console.log("correct answer" + questions[questNo].correct_answer);
@@ -140,7 +141,9 @@ const Questions = () => {
     }
     const card = e.target;
     if (selected[1] != card) {
-      card.style.backgroundColor = "#00BFFF";
+      // card.style.backgroundColor = "#00BFFF";
+      card.classList.add('selectedStyle')
+      console.log(card.classList)
       const newSelected = [true, card];
       setSelected(newSelected);
       console.log(card.innerText);
@@ -190,15 +193,15 @@ const Questions = () => {
       <text>
         Question {questNo + 1} of {noOfQuestions}
       </text>
-      <div style={overallStyle}>
-        <div id="textdiv" style={bigStyle}>
-          <text style={textStyle}>
+      <div  className = 'overallStyle'>
+        <div id="textdiv"  className = 'bigStyle'>
+          <text>
             {questions[questNo] && questions[questNo].question}
           </text>
         </div>
 
-        <div id="bigBar" style={bigStyle}>
-          <div id="littleBar" style={style}></div>
+        <div id="bigBar"  className = 'bigStyle'>
+          <div id="littleBar"  className = 'style'></div>
         </div>
       </div>
       <div
@@ -208,18 +211,18 @@ const Questions = () => {
         <Container>
           <Container className="customBox border">
             <Row>
-              <Col className="box border border-dark" id="0" style = {answerStyle}>
+              <Col className="box border border-dark" id="0"  className = 'answerStyle'>
                 {answers[0]}
               </Col>
-              <Col className="box border border-dark" id="1" style = {answerStyle}>
+              <Col className="box border border-dark" id="1"  className = 'answerStyle'>
                 {answers[1]}
               </Col>
             </Row>
             <Row>
-              <Col className="box border border-dark" id="2" style = {answerStyle}>
+              <Col className="box border border-dark" id="2"  className = 'answerStyle'>
                 {answers[2]}
               </Col>
-              <Col className="box border border-dark" id="3" style = {answerStyle}>
+              <Col className="box border border-dark" id="3"  className = 'answerStyle'>
                 {answers[3]}
               </Col>
             </Row>
