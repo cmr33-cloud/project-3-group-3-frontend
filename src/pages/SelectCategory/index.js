@@ -23,6 +23,9 @@ export default function SelectCategory() {
   
  
   function handleClick(e) {
+    e.preventDefault();
+    e.persist();
+    console.log(e.target)
     dispatch(addCategory(e.target.id ))
     setRedirect(true)
     
@@ -51,7 +54,7 @@ export default function SelectCategory() {
           <h1 className="select-category">Select Category</h1>
             <div className="row justify-content-center">
               <div className="col-4 category-box card border-white text-search" id='9' onClick={handleClick}>
-                <div><FontAwesomeIcon icon={faSearch} size="4x"/></div> 
+                <div ><FontAwesomeIcon icon={faSearch} size="4x"/></div> 
                   General Knowledge</div>
               <div className="col-4 category-box card border-white text-science" id='17' onClick={handleClick}>
                 <div><FontAwesomeIcon icon={faFlask} size="4x"/></div>

@@ -1,10 +1,12 @@
 import "./App.css";
 import React from "react";
 import Login from "./pages/Login";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
+import Title from "./pages/Title";
 
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
@@ -24,7 +26,7 @@ import WavesBg from "./components/WavesBg";
 function App() {
   return (
     <div className="App">
-     
+     <Title />
       <Switch>
         <Route path="/" exact>
         <WavesBg id='bg-login'/>

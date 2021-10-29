@@ -110,7 +110,7 @@ const Login = () => {
       <div>
         <div className="buttons">
          
-            <h1 className="landing-title text-5xl">Welcome to Inquizitve!</h1>
+            <h1 className="landing-title text-5xl">Welcome to Inquizitive!</h1>
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-7 col-md-5 col-xl-4 col-xl-3">
