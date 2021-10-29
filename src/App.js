@@ -1,10 +1,12 @@
 import "./App.css";
 import React from "react";
-import Login from "./pages/Login/index";
+import Login from "./pages/?ogin";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
+import Title from "./pages/Title";
 
 import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
@@ -18,18 +20,23 @@ import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
 import Questions from "./pages/Questions";
 import Results from "./pages/Results";
-import Leaderboard from "./pages/Leaderboard";
+import Leaderboard from "./pages/leaderboard";
+import WavesBg from "./components/WavesBg";
 
 function App() {
   return (
     <div className="App">
+     <Title />
       <Switch>
         <Route path="/" exact>
+        <WavesBg id='bg-login'/>
           <Login />
+          
         </Route>
         <Route path="/dashboard" exact>
           <Sidebar />
           <CustomNav />
+          
           <Dashboard />
         </Route>
         <Route path="/newgame">

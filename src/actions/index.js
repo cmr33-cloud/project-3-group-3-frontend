@@ -56,6 +56,7 @@ export const getQuestions = (searchTerm) => {
     try {
       console.log(searchTerm);
       const results = await fetchQuestions(searchTerm);
+      console.log(decodeURIComponent(results))
       await dispatch(loadQuestions(results));
     } catch (err) {
       console.warn(err.message);
@@ -75,8 +76,8 @@ export const fetchQuestions = async (searchTerm) => {
       `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
     );
     const data = await resp.json();
-    console.log(data);
-    console.log(data.results);
+    
+  
     return data.results;
   } catch (err) {
     throw new Error(err.message);

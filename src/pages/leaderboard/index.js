@@ -47,7 +47,7 @@ export default function Leaderboard() {
                 
                 </div>
               {gameData &&
-                gameData
+                gameData.sort((a,b) => b.score - a.score)
                   .map((participant, index) => (
                     <>
                       <div className="row">
