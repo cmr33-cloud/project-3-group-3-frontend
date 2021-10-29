@@ -3,6 +3,9 @@ import emailjs from "emailjs-com";
 import { Container, Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 import './modal.css'
+// const dotenv = require('dotenv');
+require('dotenv').config();
+
 
 // import USER_ID from '../../../src/.env'
 
@@ -11,16 +14,17 @@ export default function Contact() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  // dotenv.config();
 
   function sendEmail(e) {
     e.preventDefault();
-
+    console.log(process.env.USERID)
     emailjs
       .sendForm(
         "service_lrr82qp",
         "template_3snflyj",
         e.target,
-        "user_Myx2N5Mx4mCTsw4r1fC3B"
+        process.env.REACT_APP_USERID
       )
       .then(
         (result) => {
