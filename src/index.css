@@ -346,6 +346,14 @@
     @apply focus:bg-secondary;
   }
 
+  .rescale-question {
+    width: 85%;
+    margin-left: 135px;
+  }
+
+  .correct-answer-here {
+    @apply border-2 border-t-0 border-shade-2 text-shade-2 text-lg
+  }
 }
 
 

@@ -53,8 +53,8 @@ export default function Results() {
 
   return (
     <div>
-      <h1>the game is over...</h1>
-      <Container className="card mt-5 results-card">
+      <h1>How did you do?</h1>
+      <Container className="card mt-5 results-card game-mode-page">
         <div class="row">
           <div class="col">
             {gameData &&

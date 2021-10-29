@@ -40,7 +40,7 @@ export default function WaitingRoom(props) {
         };
       }, []);
     return (
-        <Container className = ''>
+        <Container>
           <h2 className = 'top-0'>Waiting room for {props.roomId}</h2>
             {props.participants && props.participants.map((p,index) => {
                 console.log(p)
