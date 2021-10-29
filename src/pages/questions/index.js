@@ -61,7 +61,7 @@ const Questions = () => {
     }
     else{
     if (selected[0]) {
-      selected[1].style.backgroundColor = "#FFFFFF";
+      selected[1].classList.remove('selectedStyle');
     }
     setSelected([false, null]);
     setCorrect(false);
@@ -74,10 +74,10 @@ const Questions = () => {
       indices.splice(index, 1);
     }
     const resps = [null, null, null, null];
-    resps[sortedindices[0]] = questions[questNo].correct_answer;
-    resps[sortedindices[1]] = questions[questNo].incorrect_answers[0];
-    resps[sortedindices[2]] = questions[questNo].incorrect_answers[1];
-    resps[sortedindices[3]] = questions[questNo].incorrect_answers[2];
+    resps[sortedindices[0]] = questions[questNo].correct_answer.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[1]] = questions[questNo].incorrect_answers[0].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[2]] = questions[questNo].incorrect_answers[1].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
+    resps[sortedindices[3]] = questions[questNo].incorrect_answers[2].replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü');
     setAnswers(resps);
 
     const scale = chroma.scale(["lime", "red"]);
@@ -123,7 +123,8 @@ const Questions = () => {
   function createScore(e) {
     e.preventDefault();
     if (selected[0]) {
-      selected[1].style.backgroundColor = "#FFFFFF";
+      
+      selected[1].classList.remove('selectedStyle')
       // const answer = selected[1].innerText;
       // console.log("selcted answer" + answer);
       // console.log("correct answer" + questions[questNo].correct_answer);
@@ -140,7 +141,9 @@ const Questions = () => {
     }
     const card = e.target;
     if (selected[1] != card) {
-      card.style.backgroundColor = "#00BFFF";
+      // card.style.backgroundColor = "#00BFFF";
+      card.classList.add('selectedStyle')
+      console.log(card.classList)
       const newSelected = [true, card];
       setSelected(newSelected);
       console.log(card.innerText);
@@ -163,12 +166,12 @@ const Questions = () => {
   const style = {
     width: String(width) + "px",
     backgroundColor: colour,
-    height: 75,
+    height: 20,
     float: "right",
-    borderBottomRightRadius: "25px",
+    borderRadius: "25px",
   };
   const bigStyle = {
-    height: 75,
+    height: 20,
     width: 700,
 
     margin: "auto",
@@ -187,18 +190,18 @@ const Questions = () => {
     <div className="card mt-5">
     <div hidden = {wheelHidden}>Calculating your score...</div>
     <div hidden = {allHidden}>
-      <text>
+      <h1>
         Question {questNo + 1} of {noOfQuestions}
-      </text>
-      <div style={overallStyle}>
-        <div id="textdiv" style={bigStyle}>
-          <text style={textStyle}>
-            {questions[questNo] && questions[questNo].question}
-          </text>
+      </h1>
+      <div  className = 'overallStyle'>
+        <div id="textdiv"  className = 'bigStyle'>
+          <h2>
+            {questions[questNo] && questions[questNo].question.replace(/&amp;/g, "&").replace(/&#039;/g, "").replace(/&quot;/g, "''").replace(/&eacute;/g, "é").replace(/&uuml;/g, 'ü').replace(/&Uuml;/g, 'Ü')}
+          </h2>
         </div>
 
-        <div id="bigBar" style={bigStyle}>
-          <div id="littleBar" style={style}></div>
+        <div id="bigBar"  className = 'bigStyle' style={bigStyle}>
+          <div id="littleBar"  className = 'style' style={style}></div>
         </div>
       </div>
       <div
@@ -208,18 +211,18 @@ const Questions = () => {
         <Container>
           <Container className="customBox border">
             <Row>
-              <Col className="box border border-dark" id="0" style = {answerStyle}>
+              <Col className="box border border-dark" id="0"  className = 'answerStyle'>
                 {answers[0]}
               </Col>
-              <Col className="box border border-dark" id="1" style = {answerStyle}>
+              <Col className="box border border-dark" id="1"  className = 'answerStyle'>
                 {answers[1]}
               </Col>
             </Row>
             <Row>
-              <Col className="box border border-dark" id="2" style = {answerStyle}>
+              <Col className="box border border-dark" id="2"  className = 'answerStyle'>
                 {answers[2]}
               </Col>
-              <Col className="box border border-dark" id="3" style = {answerStyle}>
+              <Col className="box border border-dark" id="3"  className = 'answerStyle'>
                 {answers[3]}
               </Col>
             </Row>

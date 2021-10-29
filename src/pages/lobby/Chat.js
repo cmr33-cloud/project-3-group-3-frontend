@@ -40,7 +40,7 @@ export default function Chat(props) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label>write a message</Form.Label>
-                        <Form.Control
+                        <Form.Control className='custom-form'
                             type="text"
                             placeholder="say something..."
                         ></Form.Control>
