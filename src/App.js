@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import Login from "./pages/?ogin";
+import Login from "./pages/Login";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route} from "react-router-dom";
@@ -20,7 +20,7 @@ import SelectDifficulty from "./pages/SelectDifficulty";
 import Lobby from './pages/Lobby'
 import Questions from "./pages/Questions";
 import Results from "./pages/Results";
-import Leaderboard from "./pages/leaderboard";
+import Leaderboard from "./pages/Leaderboard";
 import WavesBg from "./components/WavesBg";
 
 function App() {

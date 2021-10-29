@@ -101,7 +101,7 @@ export default function Dashboard() {
     </div>
   );
   return !redirect ? (
-    <Container className="d-flex w-80 card mt-5 z-0 dashboard-container">
+    <Container className="d-flex w-screen card mt-5 z-0 dashboard-container">
       <div className="row mt-2">
         <div className="col stats">
           <h1>{userData && `Hello ${userData.name}, welcome to Inquizitve!`}</h1>
