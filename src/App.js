@@ -1,13 +1,14 @@
 import "./App.css";
 import React from "react";
-import Login from "./pages/login";
+import Login from "./pages/?ogin";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route} from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Testing from "./pages/Testing";
 import Title from "./pages/Title";
 
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import CustomNav from "./components/CustomNav";
 import About from "./pages/About";
@@ -16,8 +17,8 @@ import Logout from "./pages/Logout";
 import CreateRoom from "./pages/CreateRoom";
 import SelectCategory from "./pages/SelectCategory";
 import SelectDifficulty from "./pages/SelectDifficulty";
-import Lobby from './pages/lobby'
-import Questions from "./pages/questions";
+import Lobby from './pages/Lobby'
+import Questions from "./pages/Questions";
 import Results from "./pages/Results";
 import Leaderboard from "./pages/leaderboard";
 import WavesBg from "./components/WavesBg";
